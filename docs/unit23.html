@@ -8,7 +8,7 @@
 <link href="unit23_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="unit23_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="unit23_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.353">
+  <meta name="generator" content="quarto-1.4.555">
 
   <meta name="author" content="Carlos Viñals (carlos.vinals@cunef.edu)">
   <title>Exploratory Data Analysis</title>
@@ -31,7 +31,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -221,7 +221,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -490,12 +491,12 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <p>Remember that we can visualize the distribution of a categorical variable as follows…</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># Number of gears for mtcars data set</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>gear)) <span class="sc">+</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Number of gear"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href=""></a></span>
+<span id="cb1-3"><a href=""></a><span class="co"># Number of gears for mtcars data set</span></span>
+<span id="cb1-4"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>gear)) <span class="sc">+</span></span>
+<span id="cb1-5"><a href=""></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb1-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Number of gear"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit23_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
@@ -505,11 +506,11 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <p>Each bar of the last plot shows us the number of observations we can found for every value of the variable. We can obtain the number of observations with this simple code…</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a>mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb2-4"><a href="#cb2-4"></a>  <span class="fu">group_by</span>(gear) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-5"><a href="#cb2-5"></a>  <span class="fu">summarise</span>(<span class="at">observations =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href=""></a></span>
+<span id="cb2-3"><a href=""></a>mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb2-4"><a href=""></a>  <span class="fu">group_by</span>(gear) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-5"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">observations =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
    gear observations
@@ -526,9 +527,9 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <p>For visualizing the distribution of continuous variables we can use the histogram…</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length)) <span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Petal Length (cm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb4-3"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Petal Length (cm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit23_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
@@ -552,17 +553,22 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <p>An example for analyzing variation</p>
 </div>
 <h3 id="petal-length-analysis">Petal Length Analysis</h3>
-<div class="quarto-layout-panel" style="font-size: 25px;">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length)) <span class="sc">+</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Petal Length (cm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div style="font-size: 25px;">
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb5-3"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Petal Length (cm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="unit23_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+</figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+</div>
+</div><div class="column">
 <p>The <em>clusters</em> of similar values makes us think there are subgroups in the data. For understanding it, we can ask…</p>
 <ul>
 <li>What have the observations of each group in common?</li>
@@ -582,24 +588,35 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 </section>
 <section id="variation-in-continuous-variables-2" class="slide level2">
 <h2>Variation in continuous variables</h2>
-<div class="quarto-layout-panel" style="font-size: 25px;">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris, </span>
-<span id="cb6-2"><a href="#cb6-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Petal Length (cm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div style="font-size: 25px;">
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris, </span>
+<span id="cb6-2"><a href=""></a>       <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Petal Length (cm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="unit23_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+</figure>
 </div>
 </div>
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris, </span>
-<span id="cb7-2"><a href="#cb7-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">geom_freqpoly</span>() <span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Petal Length (cm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris, </span>
+<span id="cb7-2"><a href=""></a>       <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb7-3"><a href=""></a>  <span class="fu">geom_freqpoly</span>() <span class="sc">+</span></span>
+<span id="cb7-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Petal Length (cm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="unit23_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+</figure>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -624,8 +641,8 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <p>We are going to analyze the distribution of the width of the diamonds in the data set <strong>diamonds</strong> inside R. Apparently all looks good right? (<em>Hint: Look at x axis?</em>)</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> y)) <span class="sc">+</span> </span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> y)) <span class="sc">+</span> </span>
+<span id="cb8-2"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit23_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
@@ -639,9 +656,9 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <p>Looks that there is more space than the one we need to visualizing the data, or probably there is some data we are not able to see, a bit of <em>zoom</em> may help…</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>y)) <span class="sc">+</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">coord_cartesian</span>( <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>y)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb9-3"><a href=""></a>  <span class="fu">coord_cartesian</span>( <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit23_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
@@ -654,8 +671,8 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <div style="font-size: 30px;">
 <p>Looks there are some outliers near 0, 30 and 60. We can now go directly to the data and <strong>filter</strong> to extract them…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">filter</span>( y <span class="sc">&lt;</span> <span class="dv">3</span> <span class="sc">|</span> y <span class="sc">&gt;</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href=""></a>  <span class="fu">filter</span>( y <span class="sc">&lt;</span> <span class="dv">3</span> <span class="sc">|</span> y <span class="sc">&gt;</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 10
   carat cut       color clarity depth table price     x     y     z
@@ -709,14 +726,14 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <ul>
 <li>Eliminate the whole row (big loss of information)</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>diamonds2 <span class="ot">&lt;-</span> diamonds <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">filter</span>(y<span class="sc">&gt;=</span><span class="dv">3</span> <span class="sc">&amp;</span> y<span class="sc">&lt;=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>diamonds2 <span class="ot">&lt;-</span> diamonds <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href=""></a>  <span class="fu">filter</span>(y<span class="sc">&gt;=</span><span class="dv">3</span> <span class="sc">&amp;</span> y<span class="sc">&lt;=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Replace them by <code>NA</code> (missing value)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>diamonds2 <span class="ot">&lt;-</span> diamonds <span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">if_else</span>(y<span class="sc">&lt;</span><span class="dv">3</span> <span class="sc">|</span> y<span class="sc">&gt;</span><span class="dv">20</span>, <span class="cn">NA</span>, y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>diamonds2 <span class="ot">&lt;-</span> diamonds <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">y =</span> <span class="fu">if_else</span>(y<span class="sc">&lt;</span><span class="dv">3</span> <span class="sc">|</span> y<span class="sc">&gt;</span><span class="dv">20</span>, <span class="cn">NA</span>, y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -737,11 +754,12 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Missing values</h2>
 <p>When missing values are present in the data we will see a warning in the plot…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>diamonds2, </span>
-<span id="cb14-2"><a href="#cb14-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>y)) <span class="sc">+</span> </span>
-<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data=</span>diamonds2, </span>
+<span id="cb14-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>y)) <span class="sc">+</span> </span>
+<span id="cb14-3"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 9 rows containing missing values (`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 9 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
 </div>
 
 </div>
@@ -750,9 +768,9 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Missing values</h2>
 <p>We can quickly eliminate them from the visualization using <code>na.rm = T</code> argument…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>diamonds2, </span>
-<span id="cb16-2"><a href="#cb16-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>y)) <span class="sc">+</span> </span>
-<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">geom_point</span>(<span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data=</span>diamonds2, </span>
+<span id="cb16-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>y)) <span class="sc">+</span> </span>
+<span id="cb16-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit23_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
@@ -775,8 +793,8 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <section id="covariance-categorical---continuous" class="slide level2">
 <h2>Covariance: Categorical - Continuous</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">color =</span> cut)) <span class="sc">+</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">geom_freqpoly</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">color =</span> cut)) <span class="sc">+</span></span>
+<span id="cb17-2"><a href=""></a>  <span class="fu">geom_freqpoly</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit23_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
@@ -784,9 +802,9 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Covariance: Categorical - Continuous</h2>
 <p><code>..density..</code> will paint the density in the y axis, that is the normalized count to make the area of each polygon 1.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds, </span>
-<span id="cb18-2"><a href="#cb18-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> ..density.., <span class="at">color =</span> cut)) <span class="sc">+</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">geom_freqpoly</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds, </span>
+<span id="cb18-2"><a href=""></a>       <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> ..density.., <span class="at">color =</span> cut)) <span class="sc">+</span></span>
+<span id="cb18-3"><a href=""></a>  <span class="fu">geom_freqpoly</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit23_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
@@ -794,8 +812,8 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Covariance: Categorical - Continuous</h2>
 <p>Using boxplots to analyze too…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit23_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
@@ -803,10 +821,10 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Covariance: Categorical - Continuous</h2>
 <p>Reorder it…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="2,3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, </span>
-<span id="cb20-2"><a href="#cb20-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(class, hwy, <span class="at">FUN =</span> median),</span>
-<span id="cb20-3"><a href="#cb20-3"></a>           <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="2,3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, </span>
+<span id="cb20-2"><a href=""></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(class, hwy, <span class="at">FUN =</span> median),</span>
+<span id="cb20-3"><a href=""></a>           <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb20-4"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit23_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"></section>
@@ -814,20 +832,22 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Covariance: Categorical - Categorical</h2>
 <p>We have seen bar plots, but more ways are possible…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>cut, <span class="at">y=</span>color)) <span class="sc">+</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">geom_count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>cut, <span class="at">y=</span>color)) <span class="sc">+</span></span>
+<span id="cb21-2"><a href=""></a>  <span class="fu">geom_count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit23_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
 <section id="covariance-categorical---categorical-1" class="slide level2">
 <h2>Covariance: Categorical - Categorical</h2>
 <p>Let’s do it with code using <strong>dplyr</strong> (two ways)</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">group_by</span>(color, cut) <span class="sc">%&gt;%</span> </span>
-<span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href=""></a>  <span class="fu">group_by</span>(color, cut) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>())</span>
+<span id="cb22-4"><a href=""></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb22-5"><a href=""></a>  <span class="fu">count</span>(color, cut)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 35 × 3
 # Groups:   color [7]
@@ -846,9 +866,7 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 # ℹ 25 more rows</code></pre>
 </div>
 </div>
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">count</span>(color, cut)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 35 × 3
    color cut           n
@@ -873,10 +891,10 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Covariance: Categorical - Categorical</h2>
 <p>More visual approach, using color mapping…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">count</span>(color, cut) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-3"><a href="#cb26-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> color, <span class="at">y =</span> cut, <span class="at">fill =</span> n)) <span class="sc">+</span></span>
-<span id="cb26-4"><a href="#cb26-4"></a>  <span class="fu">geom_tile</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href=""></a>  <span class="fu">count</span>(color, cut) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> color, <span class="at">y =</span> cut, <span class="at">fill =</span> n)) <span class="sc">+</span></span>
+<span id="cb25-4"><a href=""></a>  <span class="fu">geom_tile</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit23_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" class="r-stretch"></section>
@@ -888,8 +906,8 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <section id="covariance-continuous---continuous-1" class="slide level2">
 <h2>Covariance: Continuous - Continuous</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span> </span>
-<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span> </span>
+<span id="cb26-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit23_files/figure-revealjs/unnamed-chunk-21-1.png" width="960" class="r-stretch"></section>
@@ -897,8 +915,8 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Covariance: Continuous - Continuous</h2>
 <p>Another approach…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">geom_bin2d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb27-2"><a href=""></a>  <span class="fu">geom_bin2d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit23_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch"></section>
@@ -906,9 +924,9 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Covariance: Continuous - Continuous</h2>
 <p>Another approach… but better</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># install.packages("hexbin")</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb29-3"><a href="#cb29-3"></a>  <span class="fu">geom_hex</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="co"># install.packages("hexbin")</span></span>
+<span id="cb28-2"><a href=""></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb28-3"><a href=""></a>  <span class="fu">geom_hex</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit23_files/figure-revealjs/unnamed-chunk-23-1.png" width="960" class="r-stretch"></section>
@@ -916,8 +934,8 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Covariance: Continuous - Continuous</h2>
 <p>Boxplots too…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="fu">cut_width</span>(carat, <span class="fl">0.1</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb29-2"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="fu">cut_width</span>(carat, <span class="fl">0.1</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit23_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch"></section>
@@ -925,8 +943,8 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Covariance: Continuous - Continuous</h2>
 <p>Boxplots too… (same number of point for each bin)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="fu">cut_number</span>(carat, <span class="dv">20</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb30-2"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="fu">cut_number</span>(carat, <span class="dv">20</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit23_files/figure-revealjs/unnamed-chunk-25-1.png" width="960" class="r-stretch"></section>
@@ -939,6 +957,7 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <section id="section-9" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <h3 id="patterns-and-models">Patterns and models</h3>
+<div style="font-size: 30px;">
 <p><strong>Patterns</strong> reveal hints regarding relations between variables. When we see one we must analyze…</p>
 <ul>
 <li>Can be random?</li>
@@ -948,13 +967,16 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <li>This relation changes if we analyze subgroups of data?</li>
 </ul>
 <p><strong>Models</strong> can be used for extract patterns of the data, like eliminating the effect of a variable and study the remaining effect.</p>
+</div>
 </section>
 <section id="section-10" class="slide level2">
 <h2></h2>
 <p><img data-src="img/final.gif" width="1000"></p>
+<div class="quarto-auto-generated-content">
 <p><img src="img/logo2.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p>Exploratory Data Analysis</p>
+</div>
 </div>
 </section>
     </div>
@@ -983,7 +1005,6 @@ Carlos Viñals (carlos.vinals@cunef.edu)
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1282,10 +1303,27 @@ Carlos Viñals (carlos.vinals@cunef.edu)
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1295,8 +1333,17 @@ Carlos Viñals (carlos.vinals@cunef.edu)
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1310,7 +1357,11 @@ Carlos Viñals (carlos.vinals@cunef.edu)
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

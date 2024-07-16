@@ -8,7 +8,7 @@
 <link href="unit21_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="unit21_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="unit21_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.353">
+  <meta name="generator" content="quarto-1.4.555">
 
   <meta name="author" content="Carlos Viñals (carlos.vinals@cunef.edu)">
   <title>Exploratory Data Analysis: Visualization</title>
@@ -31,7 +31,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -221,7 +221,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -464,7 +465,7 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <p><strong>Tibbles</strong> are similar to data frames but they have special features that make them more interesting for data analysis.</p>
 <p>First all we need to load <em>tidyverse</em> package (take into account that this package will load all tidyverse packages including tibble one).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb1-1" class="hljs-ln-code"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb1-1" class="hljs-ln-code"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-3" class="slide level2">
@@ -477,8 +478,8 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 </div>
 <h3 id="from-data-frame-to-tibble">From data frame to tibble</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(iris)</span>
-<span id="cb2-2"><a href="#cb2-2"></a>tb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>tb <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(iris)</span>
+<span id="cb2-2"><a href=""></a>tb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 150 × 5
    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -507,13 +508,13 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 </div>
 <h3 id="creating-a-tibble">Creating a tibble</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="at">p  =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>),</span>
-<span id="cb4-3"><a href="#cb4-3"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb4-4"><a href="#cb4-4"></a>  <span class="at">y =</span> <span class="dv">2</span>,</span>
-<span id="cb4-5"><a href="#cb4-5"></a>  <span class="st">`</span><span class="at">sum of values</span><span class="st">`</span> <span class="ot">=</span> x <span class="sc">+</span> y</span>
-<span id="cb4-6"><a href="#cb4-6"></a>)</span>
-<span id="cb4-7"><a href="#cb4-7"></a>dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>dt <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb4-2"><a href=""></a>  <span class="at">p  =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>),</span>
+<span id="cb4-3"><a href=""></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb4-4"><a href=""></a>  <span class="at">y =</span> <span class="dv">2</span>,</span>
+<span id="cb4-5"><a href=""></a>  <span class="st">`</span><span class="at">sum of values</span><span class="st">`</span> <span class="ot">=</span> x <span class="sc">+</span> y</span>
+<span id="cb4-6"><a href=""></a>)</span>
+<span id="cb4-7"><a href=""></a>dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 4
   p         x     y `sum of values`
@@ -533,7 +534,7 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 </div>
 <p>Tibbles have a more simplified and clean print that only show the first 10 rows by default</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>iris</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>iris</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
 1            5.1         3.5          1.4         0.2     setosa
@@ -696,8 +697,8 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 </div>
 <p>Tibbles have a more simplified and clean print that only show the first 10 rows by default</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>df_t <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(iris)</span>
-<span id="cb8-2"><a href="#cb8-2"></a>df_t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>df_t <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(iris)</span>
+<span id="cb8-2"><a href=""></a>df_t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 150 × 5
    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -723,8 +724,8 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 </div>
 <p>But you can print more than 10 if you want</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># We use pipes here %&gt;% </span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>df_t <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">11</span>, <span class="at">width =</span> <span class="cn">Inf</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="co"># We use pipes here %&gt;% </span></span>
+<span id="cb10-2"><a href=""></a>df_t <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">11</span>, <span class="at">width =</span> <span class="cn">Inf</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 150 × 5
    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -753,14 +754,14 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <p>For selecting a single variable we can use <strong>$</strong> (by name) or <strong>[[</strong> (by name or position)</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># by name</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>df_t<span class="sc">$</span>Species[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="co"># by name</span></span>
+<span id="cb12-2"><a href=""></a>df_t<span class="sc">$</span>Species[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] setosa setosa setosa setosa setosa setosa setosa setosa setosa setosa
 Levels: setosa versicolor virginica</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># by position</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>df_t[[<span class="dv">5</span>]][<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="co"># by position</span></span>
+<span id="cb14-2"><a href=""></a>df_t[[<span class="dv">5</span>]][<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] setosa setosa setosa setosa setosa setosa setosa setosa setosa setosa
 Levels: setosa versicolor virginica</code></pre>
@@ -773,8 +774,8 @@ Levels: setosa versicolor virginica</code></pre>
 <p>EDA - Visualization: Tibbles</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># by pipe</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a>df_t <span class="sc">%&gt;%</span> .<span class="sc">$</span>Species</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co"># by pipe</span></span>
+<span id="cb16-2"><a href=""></a>df_t <span class="sc">%&gt;%</span> .<span class="sc">$</span>Species</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] setosa     setosa     setosa     setosa     setosa     setosa    
   [7] setosa     setosa     setosa     setosa     setosa     setosa    
@@ -829,15 +830,15 @@ Levels: setosa versicolor virginica</code></pre>
 <div style="font-size: 30px;">
 <p>We need to load the library first, as it is part of tidyverse we will load the full package</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># Do library(ggplot2) for the package only</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">library</span>(tidyverse) <span class="co"># Do library(ggplot2) for the package only</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And we are going to use an specific data set we can load too…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">library</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">library</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Make a first analysis on the data…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">glimpse</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">glimpse</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,704
 Columns: 6
@@ -864,11 +865,11 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <h4 id="relation-between-gdp-per-capita-life-expectancy">Relation between GDP per Capita &amp; Life Expectancy</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb22-1" class="hljs-ln-code"><a href="#cb22-1"></a>gapminder67 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="st">"1967"</span>)</span>
-<span id="cb22-2" class="hljs-ln-code"><a href="#cb22-2"></a><span class="fu">ggplot</span>(gapminder67, </span>
-<span id="cb22-3" class="hljs-ln-code"><a href="#cb22-3"></a>     <span class="fu">aes</span>(gdpPercap, lifeExp, <span class="at">size =</span> pop, <span class="at">color =</span> continent)) <span class="sc">+</span> </span>
-<span id="cb22-4" class="hljs-ln-code"><a href="#cb22-4"></a>     <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb22-5" class="hljs-ln-code"><a href="#cb22-5"></a>     <span class="fu">scale_x_log10</span>() <span class="co"># convert to log scale</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb22-1" class="hljs-ln-code"><a href=""></a>gapminder67 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="st">"1967"</span>)</span>
+<span id="cb22-2" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(gapminder67, </span>
+<span id="cb22-3" class="hljs-ln-code"><a href=""></a>     <span class="fu">aes</span>(gdpPercap, lifeExp, <span class="at">size =</span> pop, <span class="at">color =</span> continent)) <span class="sc">+</span> </span>
+<span id="cb22-4" class="hljs-ln-code"><a href=""></a>     <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-5" class="hljs-ln-code"><a href=""></a>     <span class="fu">scale_x_log10</span>() <span class="co"># convert to log scale</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
@@ -879,11 +880,11 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <h4 id="relation-between-gdp-per-capita-life-expectancy-1">Relation between GDP per Capita &amp; Life Expectancy</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>gapminder67 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="st">"1967"</span>) <span class="co"># filtering</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a><span class="fu">ggplot</span>(gapminder67, </span>
-<span id="cb23-3"><a href="#cb23-3"></a>     <span class="fu">aes</span>(gdpPercap, lifeExp, <span class="at">size =</span> pop, <span class="at">color =</span> continent)) <span class="sc">+</span> </span>
-<span id="cb23-4"><a href="#cb23-4"></a>     <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb23-5"><a href="#cb23-5"></a>     <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>gapminder67 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="st">"1967"</span>) <span class="co"># filtering</span></span>
+<span id="cb23-2"><a href=""></a><span class="fu">ggplot</span>(gapminder67, </span>
+<span id="cb23-3"><a href=""></a>     <span class="fu">aes</span>(gdpPercap, lifeExp, <span class="at">size =</span> pop, <span class="at">color =</span> continent)) <span class="sc">+</span> </span>
+<span id="cb23-4"><a href=""></a>     <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb23-5"><a href=""></a>     <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
@@ -894,11 +895,11 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <h4 id="relation-between-gdp-per-capita-life-expectancy-2">Relation between GDP per Capita &amp; Life Expectancy</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>gapminder67 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="st">"1967"</span>)</span>
-<span id="cb24-2"><a href="#cb24-2"></a><span class="fu">ggplot</span>(gapminder67, </span>
-<span id="cb24-3"><a href="#cb24-3"></a>     <span class="fu">aes</span>(gdpPercap, lifeExp, <span class="at">size =</span> pop, <span class="at">color =</span> continent)) <span class="sc">+</span> </span>
-<span id="cb24-4"><a href="#cb24-4"></a>     <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="co"># geometry of a scatter plot</span></span>
-<span id="cb24-5"><a href="#cb24-5"></a>     <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a>gapminder67 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="st">"1967"</span>)</span>
+<span id="cb24-2"><a href=""></a><span class="fu">ggplot</span>(gapminder67, </span>
+<span id="cb24-3"><a href=""></a>     <span class="fu">aes</span>(gdpPercap, lifeExp, <span class="at">size =</span> pop, <span class="at">color =</span> continent)) <span class="sc">+</span> </span>
+<span id="cb24-4"><a href=""></a>     <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="co"># geometry of a scatter plot</span></span>
+<span id="cb24-5"><a href=""></a>     <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
@@ -909,11 +910,11 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <h4 id="relation-between-gdp-per-capita-life-expectancy-3">Relation between GDP per Capita &amp; Life Expectancy</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25" data-code-line-numbers="2,3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>gapminder67 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="st">"1967"</span>)</span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="fu">ggplot</span>(gapminder67, </span>
-<span id="cb25-3"><a href="#cb25-3"></a>     <span class="fu">aes</span>(gdpPercap, lifeExp, <span class="at">size =</span> pop, <span class="at">color =</span> continent)) <span class="sc">+</span> </span>
-<span id="cb25-4"><a href="#cb25-4"></a>     <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a>     <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25" data-code-line-numbers="2,3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>gapminder67 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="st">"1967"</span>)</span>
+<span id="cb25-2"><a href=""></a><span class="fu">ggplot</span>(gapminder67, </span>
+<span id="cb25-3"><a href=""></a>     <span class="fu">aes</span>(gdpPercap, lifeExp, <span class="at">size =</span> pop, <span class="at">color =</span> continent)) <span class="sc">+</span> </span>
+<span id="cb25-4"><a href=""></a>     <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb25-5"><a href=""></a>     <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
@@ -922,14 +923,14 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <ul>
 <li>The <strong>ggplot2</strong> structures works as follows…</li>
 </ul>
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>DATA<span class="sc">&gt;</span>, </span>
-<span id="cb26-2"><a href="#cb26-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="sc">&lt;</span>x<span class="sc">-</span>VARIABLE<span class="sc">&gt;</span>, <span class="at">y =</span> <span class="sc">&lt;</span>y<span class="sc">-</span>VARIABLE<span class="sc">&gt;</span>)) <span class="sc">+</span></span>
-<span id="cb26-3"><a href="#cb26-3"></a>   <span class="er">&lt;</span>GEOM_FUNCTION<span class="sc">&gt;</span>() <span class="sc">+</span></span>
-<span id="cb26-4"><a href="#cb26-4"></a>   <span class="er">&lt;</span>OTHER_FUNCTIONS<span class="sc">&gt;</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>DATA<span class="sc">&gt;</span>, </span>
+<span id="cb26-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="sc">&lt;</span>x<span class="sc">-</span>VARIABLE<span class="sc">&gt;</span>, <span class="at">y =</span> <span class="sc">&lt;</span>y<span class="sc">-</span>VARIABLE<span class="sc">&gt;</span>)) <span class="sc">+</span></span>
+<span id="cb26-3"><a href=""></a>   <span class="er">&lt;</span>GEOM_FUNCTION<span class="sc">&gt;</span>() <span class="sc">+</span></span>
+<span id="cb26-4"><a href=""></a>   <span class="er">&lt;</span>OTHER_FUNCTIONS<span class="sc">&gt;</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Alternative structure…</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>DATA<span class="sc">&gt;</span>) <span class="sc">+</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a>   <span class="er">&lt;</span>GEOM_FUNCTION<span class="sc">&gt;</span>( <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="sc">&lt;</span>x<span class="sc">-</span>VARIABLE<span class="sc">&gt;</span>, <span class="at">y =</span> <span class="sc">&lt;</span>y<span class="sc">-</span>VARIABLE<span class="sc">&gt;</span>)) <span class="sc">+</span></span>
-<span id="cb27-3"><a href="#cb27-3"></a>   <span class="er">&lt;</span>OTHER_FUNCTIONS<span class="sc">&gt;</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>DATA<span class="sc">&gt;</span>) <span class="sc">+</span></span>
+<span id="cb27-2"><a href=""></a>   <span class="er">&lt;</span>GEOM_FUNCTION<span class="sc">&gt;</span>( <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="sc">&lt;</span>x<span class="sc">-</span>VARIABLE<span class="sc">&gt;</span>, <span class="at">y =</span> <span class="sc">&lt;</span>y<span class="sc">-</span>VARIABLE<span class="sc">&gt;</span>)) <span class="sc">+</span></span>
+<span id="cb27-3"><a href=""></a>   <span class="er">&lt;</span>OTHER_FUNCTIONS<span class="sc">&gt;</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><strong>mapping</strong> defines how the variables should be mapped on the different parts of the plot.</li>
 </ul>
@@ -941,7 +942,7 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <h2>Step by step</h2>
 <p>First view of the data…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">glimpse</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">glimpse</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,704
 Columns: 6
@@ -958,8 +959,8 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <h2>Step by step</h2>
 <p>We are going to filter a bit to concrete the analysis in one year…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>gapminder67 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="st">"1967"</span>) </span>
-<span id="cb30-2"><a href="#cb30-2"></a>gapminder67</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a>gapminder67 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="st">"1967"</span>) </span>
+<span id="cb30-2"><a href=""></a>gapminder67</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 142 × 6
    country     continent  year lifeExp      pop gdpPercap
@@ -982,8 +983,8 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <h2>Step by step</h2>
 <p>First visualization, can you describe the relation between both variables?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">ggplot</span>(gapminder67, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp) ) <span class="sc">+</span>  </span>
-<span id="cb32-2"><a href="#cb32-2"></a>     <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">ggplot</span>(gapminder67, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp) ) <span class="sc">+</span>  </span>
+<span id="cb32-2"><a href=""></a>     <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
@@ -991,9 +992,9 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <h2>Step by step</h2>
 <p>Improved visualization, can you describe better now the relation between both variables?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">ggplot</span>(gapminder67, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp) ) <span class="sc">+</span>  </span>
-<span id="cb33-2"><a href="#cb33-2"></a>     <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb33-3"><a href="#cb33-3"></a>     <span class="fu">scale_x_log10</span>() <span class="co"># normalize values for better display</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="fu">ggplot</span>(gapminder67, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp) ) <span class="sc">+</span>  </span>
+<span id="cb33-2"><a href=""></a>     <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb33-3"><a href=""></a>     <span class="fu">scale_x_log10</span>() <span class="co"># normalize values for better display</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
@@ -1044,10 +1045,10 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <h3 id="representing-the-continent-i">Representing the continent I</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, </span>
-<span id="cb34-2"><a href="#cb34-2"></a>                                  <span class="at">color =</span> continent) ) <span class="sc">+</span></span>
-<span id="cb34-3"><a href="#cb34-3"></a>     <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb34-4"><a href="#cb34-4"></a>     <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, </span>
+<span id="cb34-2"><a href=""></a>                                  <span class="at">color =</span> continent) ) <span class="sc">+</span></span>
+<span id="cb34-3"><a href=""></a>     <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb34-4"><a href=""></a>     <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" class="r-stretch"></section>
@@ -1061,11 +1062,11 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <h3 id="representing-the-continent-ii">Representing the continent II</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, </span>
-<span id="cb35-2"><a href="#cb35-2"></a>                                  <span class="at">color =</span> continent,</span>
-<span id="cb35-3"><a href="#cb35-3"></a>                                  <span class="at">shape =</span> continent) ) <span class="sc">+</span></span>
-<span id="cb35-4"><a href="#cb35-4"></a>     <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb35-5"><a href="#cb35-5"></a>     <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, </span>
+<span id="cb35-2"><a href=""></a>                                  <span class="at">color =</span> continent,</span>
+<span id="cb35-3"><a href=""></a>                                  <span class="at">shape =</span> continent) ) <span class="sc">+</span></span>
+<span id="cb35-4"><a href=""></a>     <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb35-5"><a href=""></a>     <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-21-1.png" width="960" class="r-stretch"></section>
@@ -1079,12 +1080,12 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <h3 id="representing-the-continent-population-i">Representing the continent &amp; population I</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, </span>
-<span id="cb36-2"><a href="#cb36-2"></a>                                  <span class="at">color =</span> continent,</span>
-<span id="cb36-3"><a href="#cb36-3"></a>                                  <span class="at">shape =</span> continent,</span>
-<span id="cb36-4"><a href="#cb36-4"></a>                                  <span class="at">size =</span> pop) ) <span class="sc">+</span></span>
-<span id="cb36-5"><a href="#cb36-5"></a>     <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb36-6"><a href="#cb36-6"></a>     <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, </span>
+<span id="cb36-2"><a href=""></a>                                  <span class="at">color =</span> continent,</span>
+<span id="cb36-3"><a href=""></a>                                  <span class="at">shape =</span> continent,</span>
+<span id="cb36-4"><a href=""></a>                                  <span class="at">size =</span> pop) ) <span class="sc">+</span></span>
+<span id="cb36-5"><a href=""></a>     <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb36-6"><a href=""></a>     <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch"></section>
@@ -1098,12 +1099,12 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <h3 id="representing-the-continent-population-ii">Representing the continent &amp; population II</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, </span>
-<span id="cb37-2"><a href="#cb37-2"></a>                                  <span class="at">color =</span> continent,</span>
-<span id="cb37-3"><a href="#cb37-3"></a>                                  <span class="at">shape =</span> continent,</span>
-<span id="cb37-4"><a href="#cb37-4"></a>                                  <span class="at">size =</span> pop)) <span class="sc">+</span></span>
-<span id="cb37-5"><a href="#cb37-5"></a>     <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb37-6"><a href="#cb37-6"></a>     <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, </span>
+<span id="cb37-2"><a href=""></a>                                  <span class="at">color =</span> continent,</span>
+<span id="cb37-3"><a href=""></a>                                  <span class="at">shape =</span> continent,</span>
+<span id="cb37-4"><a href=""></a>                                  <span class="at">size =</span> pop)) <span class="sc">+</span></span>
+<span id="cb37-5"><a href=""></a>     <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb37-6"><a href=""></a>     <span class="fu">scale_x_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-23-1.png" width="960" class="r-stretch"></section>
@@ -1118,7 +1119,7 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <h3 id="to-sum-up">To Sum Up</h3>
 <div style="font-size: 30px;">
 <p>We can represent both continuous and discrete variables</p>
-<table>
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th>aesthetic</th>
@@ -1177,12 +1178,12 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <p>Faceting has been designed to create multiple plots in one single plot by different variables. <strong>Single Variable</strong></p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb38-1" class="hljs-ln-code"><a href="#cb38-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder67, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
-<span id="cb38-2" class="hljs-ln-code"><a href="#cb38-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb38-3" class="hljs-ln-code"><a href="#cb38-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"GDP per Capita vs Life Expectancy"</span>,</span>
-<span id="cb38-4" class="hljs-ln-code"><a href="#cb38-4"></a>       <span class="at">subtitle =</span> <span class="st">"By continent"</span>,</span>
-<span id="cb38-5" class="hljs-ln-code"><a href="#cb38-5"></a>       <span class="at">x =</span> <span class="st">"GDP per Capita ($)"</span>, <span class="at">y =</span>  <span class="st">"Life Expectancy (years)"</span>) <span class="sc">+</span></span>
-<span id="cb38-6" class="hljs-ln-code"><a href="#cb38-6"></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb38-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder67, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
+<span id="cb38-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb38-3" class="hljs-ln-code"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"GDP per Capita vs Life Expectancy"</span>,</span>
+<span id="cb38-4" class="hljs-ln-code"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"By continent"</span>,</span>
+<span id="cb38-5" class="hljs-ln-code"><a href=""></a>       <span class="at">x =</span> <span class="st">"GDP per Capita ($)"</span>, <span class="at">y =</span>  <span class="st">"Life Expectancy (years)"</span>) <span class="sc">+</span></span>
+<span id="cb38-6" class="hljs-ln-code"><a href=""></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch"></section>
@@ -1198,12 +1199,12 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <p>Faceting has been designed to create multiple plots in one single plot by different variables: <strong>Single Variable</strong></p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder67, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
-<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb39-3"><a href="#cb39-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"GDP per Capita vs Life Expectancy"</span>,</span>
-<span id="cb39-4"><a href="#cb39-4"></a>       <span class="at">subtitle =</span> <span class="st">"By continent"</span>,</span>
-<span id="cb39-5"><a href="#cb39-5"></a>       <span class="at">x =</span> <span class="st">"GDP per Capita ($)"</span>, <span class="at">y =</span>  <span class="st">"Life Expectancy (years)"</span>) <span class="sc">+</span></span>
-<span id="cb39-6"><a href="#cb39-6"></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder67, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
+<span id="cb39-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb39-3"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"GDP per Capita vs Life Expectancy"</span>,</span>
+<span id="cb39-4"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"By continent"</span>,</span>
+<span id="cb39-5"><a href=""></a>       <span class="at">x =</span> <span class="st">"GDP per Capita ($)"</span>, <span class="at">y =</span>  <span class="st">"Life Expectancy (years)"</span>) <span class="sc">+</span></span>
+<span id="cb39-6"><a href=""></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-25-1.png" width="960" class="r-stretch"></section>
@@ -1219,12 +1220,12 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <p>Faceting has been designed to create multiple plots in one single plot by different variables: <strong>Single Variable</strong></p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder67, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
-<span id="cb40-2"><a href="#cb40-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb40-3"><a href="#cb40-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"GDP per Capita vs Life Expectancy"</span>,</span>
-<span id="cb40-4"><a href="#cb40-4"></a>       <span class="at">subtitle =</span> <span class="st">"By continent"</span>,</span>
-<span id="cb40-5"><a href="#cb40-5"></a>       <span class="at">x =</span> <span class="st">"GDP per Capita ($)"</span>, <span class="at">y =</span>  <span class="st">"Life Expectancy (years)"</span>) <span class="sc">+</span></span>
-<span id="cb40-6"><a href="#cb40-6"></a>  <span class="fu">facet_grid</span>(continent <span class="sc">~</span> .)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder67, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
+<span id="cb40-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb40-3"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"GDP per Capita vs Life Expectancy"</span>,</span>
+<span id="cb40-4"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"By continent"</span>,</span>
+<span id="cb40-5"><a href=""></a>       <span class="at">x =</span> <span class="st">"GDP per Capita ($)"</span>, <span class="at">y =</span>  <span class="st">"Life Expectancy (years)"</span>) <span class="sc">+</span></span>
+<span id="cb40-6"><a href=""></a>  <span class="fu">facet_grid</span>(continent <span class="sc">~</span> .)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-26-1.png" width="960" class="r-stretch"></section>
@@ -1240,12 +1241,12 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <p>Faceting has been designed to create multiple plots in one single plot by different variables: <strong>Single Variable</strong></p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder67, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
-<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb41-3"><a href="#cb41-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"GDP per Capita vs Life Expectancy"</span>,</span>
-<span id="cb41-4"><a href="#cb41-4"></a>       <span class="at">subtitle =</span> <span class="st">"By continent"</span>,</span>
-<span id="cb41-5"><a href="#cb41-5"></a>       <span class="at">x =</span> <span class="st">"GDP per Capita ($)"</span>, <span class="at">y =</span>  <span class="st">"Life Expectancy (years)"</span>) <span class="sc">+</span></span>
-<span id="cb41-6"><a href="#cb41-6"></a>  <span class="fu">facet_wrap</span>(continent <span class="sc">~</span> .)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder67, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
+<span id="cb41-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb41-3"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"GDP per Capita vs Life Expectancy"</span>,</span>
+<span id="cb41-4"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"By continent"</span>,</span>
+<span id="cb41-5"><a href=""></a>       <span class="at">x =</span> <span class="st">"GDP per Capita ($)"</span>, <span class="at">y =</span>  <span class="st">"Life Expectancy (years)"</span>) <span class="sc">+</span></span>
+<span id="cb41-6"><a href=""></a>  <span class="fu">facet_wrap</span>(continent <span class="sc">~</span> .)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-27-1.png" width="960" class="r-stretch"></section>
@@ -1261,12 +1262,12 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <p>Faceting has been designed to create multiple plots in one single plot by different variables: <strong>Single Variable</strong></p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder67, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
-<span id="cb42-2"><a href="#cb42-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb42-3"><a href="#cb42-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"GDP per Capita vs Life Expectancy"</span>,</span>
-<span id="cb42-4"><a href="#cb42-4"></a>       <span class="at">subtitle =</span> <span class="st">"By continent"</span>,</span>
-<span id="cb42-5"><a href="#cb42-5"></a>       <span class="at">x =</span> <span class="st">"GDP per Capita ($)"</span>, <span class="at">y =</span>  <span class="st">"Life Expectancy (years)"</span>) <span class="sc">+</span></span>
-<span id="cb42-6"><a href="#cb42-6"></a>  <span class="fu">facet_wrap</span>(continent <span class="sc">~</span> ., <span class="at">scales =</span> <span class="st">"free_x"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder67, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
+<span id="cb42-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb42-3"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"GDP per Capita vs Life Expectancy"</span>,</span>
+<span id="cb42-4"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"By continent"</span>,</span>
+<span id="cb42-5"><a href=""></a>       <span class="at">x =</span> <span class="st">"GDP per Capita ($)"</span>, <span class="at">y =</span>  <span class="st">"Life Expectancy (years)"</span>) <span class="sc">+</span></span>
+<span id="cb42-6"><a href=""></a>  <span class="fu">facet_wrap</span>(continent <span class="sc">~</span> ., <span class="at">scales =</span> <span class="st">"free_x"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-28-1.png" width="960" class="r-stretch"></section>
@@ -1402,15 +1403,15 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <p>EDA - Visualization: Uni-Variate Numeric</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">library</span>(Tmisc) <span class="co"># loading Tmisc</span></span>
-<span id="cb43-2"><a href="#cb43-2"></a></span>
-<span id="cb43-3"><a href="#cb43-3"></a>quartet <span class="sc">%&gt;%</span></span>
-<span id="cb43-4"><a href="#cb43-4"></a>  <span class="fu">group_by</span>(set) <span class="sc">%&gt;%</span> <span class="co"># grouping the data by set</span></span>
-<span id="cb43-5"><a href="#cb43-5"></a>  <span class="fu">summarise</span>( </span>
-<span id="cb43-6"><a href="#cb43-6"></a>    <span class="at">mean_x =</span> <span class="fu">mean</span>(x), <span class="at">mean_y =</span> <span class="fu">mean</span>(y),</span>
-<span id="cb43-7"><a href="#cb43-7"></a>    <span class="at">sd_x =</span> <span class="fu">sd</span>(x), <span class="at">sd_y =</span> <span class="fu">sd</span>(y),</span>
-<span id="cb43-8"><a href="#cb43-8"></a>    <span class="at">r =</span> <span class="fu">cor</span>(x, y)</span>
-<span id="cb43-9"><a href="#cb43-9"></a>  ) <span class="co"># summarizing main stats</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="fu">library</span>(Tmisc) <span class="co"># loading Tmisc</span></span>
+<span id="cb43-2"><a href=""></a></span>
+<span id="cb43-3"><a href=""></a>quartet <span class="sc">%&gt;%</span></span>
+<span id="cb43-4"><a href=""></a>  <span class="fu">group_by</span>(set) <span class="sc">%&gt;%</span> <span class="co"># grouping the data by set</span></span>
+<span id="cb43-5"><a href=""></a>  <span class="fu">summarise</span>( </span>
+<span id="cb43-6"><a href=""></a>    <span class="at">mean_x =</span> <span class="fu">mean</span>(x), <span class="at">mean_y =</span> <span class="fu">mean</span>(y),</span>
+<span id="cb43-7"><a href=""></a>    <span class="at">sd_x =</span> <span class="fu">sd</span>(x), <span class="at">sd_y =</span> <span class="fu">sd</span>(y),</span>
+<span id="cb43-8"><a href=""></a>    <span class="at">r =</span> <span class="fu">cor</span>(x, y)</span>
+<span id="cb43-9"><a href=""></a>  ) <span class="co"># summarizing main stats</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 6
   set   mean_x mean_y  sd_x  sd_y     r
@@ -1428,9 +1429,9 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <p>EDA - Visualization: Uni-Variate Numeric</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">ggplot</span>(quartet, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb45-3"><a href="#cb45-3"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> set, <span class="at">ncol =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a><span class="fu">ggplot</span>(quartet, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb45-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb45-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> set, <span class="at">ncol =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-30-1.png" width="960" class="r-stretch"></section>
@@ -1442,8 +1443,8 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <p>Using histograms…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap)) <span class="sc">+</span> </span>
-<span id="cb46-2"><a href="#cb46-2"></a>     <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap)) <span class="sc">+</span> </span>
+<span id="cb46-2"><a href=""></a>     <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-31-1.png" width="960" class="r-stretch"></section>
@@ -1455,8 +1456,8 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <p>Using histograms…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap)) <span class="sc">+</span> </span>
-<span id="cb47-2"><a href="#cb47-2"></a>     <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap)) <span class="sc">+</span> </span>
+<span id="cb47-2"><a href=""></a>     <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-32-1.png" width="960" class="r-stretch"></section>
@@ -1468,9 +1469,9 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <p>More simple approach… density plot</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap)) <span class="sc">+</span> </span>
-<span id="cb48-2"><a href="#cb48-2"></a>     <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span> <span class="co"># density plot</span></span>
-<span id="cb48-3"><a href="#cb48-3"></a>     <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap)) <span class="sc">+</span> </span>
+<span id="cb48-2"><a href=""></a>     <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span> <span class="co"># density plot</span></span>
+<span id="cb48-3"><a href=""></a>     <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-33-1.png" width="960" class="r-stretch"></section>
@@ -1482,10 +1483,10 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <p>All together…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span>..density..)) <span class="sc">+</span> </span>
-<span id="cb49-2"><a href="#cb49-2"></a>     <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">100</span>, <span class="at">fill=</span><span class="st">"grey"</span>) <span class="sc">+</span> </span>
-<span id="cb49-3"><a href="#cb49-3"></a>     <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span> <span class="co"># density plot</span></span>
-<span id="cb49-4"><a href="#cb49-4"></a>     <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span>..density..)) <span class="sc">+</span> </span>
+<span id="cb49-2"><a href=""></a>     <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">100</span>, <span class="at">fill=</span><span class="st">"grey"</span>) <span class="sc">+</span> </span>
+<span id="cb49-3"><a href=""></a>     <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span> <span class="co"># density plot</span></span>
+<span id="cb49-4"><a href=""></a>     <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-34-1.png" width="960" class="r-stretch"></section>
@@ -1502,8 +1503,8 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <p>Bar plot… (uses stats by default to count observations)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> continent)) <span class="sc">+</span> </span>
-<span id="cb50-2"><a href="#cb50-2"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> continent)) <span class="sc">+</span> </span>
+<span id="cb50-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-35-1.png" width="960" class="r-stretch"></section>
@@ -1514,11 +1515,11 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <p>Column plot… (need more data treatment for doing the same)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>gapminder67 <span class="sc">%&gt;%</span> </span>
-<span id="cb51-2"><a href="#cb51-2"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span> </span>
-<span id="cb51-3"><a href="#cb51-3"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb51-4"><a href="#cb51-4"></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> count)) <span class="sc">+</span> </span>
-<span id="cb51-5"><a href="#cb51-5"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a>gapminder67 <span class="sc">%&gt;%</span> </span>
+<span id="cb51-2"><a href=""></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-4"><a href=""></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> count)) <span class="sc">+</span> </span>
+<span id="cb51-5"><a href=""></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-36-1.png" width="960" class="r-stretch"></section>
@@ -1538,8 +1539,8 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <h3 id="continous---categorical">Continous - Categorical</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb52-1" class="hljs-ln-code"><a href="#cb52-1"></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> gdpPercap)) <span class="sc">+</span></span>
-<span id="cb52-2" class="hljs-ln-code"><a href="#cb52-2"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb52-1" class="hljs-ln-code"><a href=""></a><span class="fu">ggplot</span>(gapminder67, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> gdpPercap)) <span class="sc">+</span></span>
+<span id="cb52-2" class="hljs-ln-code"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-37-1.png" width="960" class="r-stretch"></section>
@@ -1565,10 +1566,10 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <h3 id="continous---continous">Continous - Continous</h3>
 <p>See patterns and tendency in the data…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">ggplot</span>(gapminder67, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp) ) <span class="sc">+</span></span>
-<span id="cb53-2"><a href="#cb53-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb53-3"><a href="#cb53-3"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
-<span id="cb53-4"><a href="#cb53-4"></a>  <span class="fu">geom_smooth</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a><span class="fu">ggplot</span>(gapminder67, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp) ) <span class="sc">+</span></span>
+<span id="cb53-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb53-3"><a href=""></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb53-4"><a href=""></a>  <span class="fu">geom_smooth</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-38-1.png" width="960" class="r-stretch"></section>
@@ -1582,8 +1583,8 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <h3 id="categorical---categorical-i">Categorical - Categorical (I)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> clarity, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
-<span id="cb54-2"><a href="#cb54-2"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> clarity, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
+<span id="cb54-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-39-1.png" width="960" class="r-stretch"></section>
@@ -1597,9 +1598,9 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <h3 id="categorical---categorical-ii">Categorical - Categorical (II)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> clarity, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
-<span id="cb55-2"><a href="#cb55-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
-<span id="cb55-3"><a href="#cb55-3"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"proportion"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> clarity, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
+<span id="cb55-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb55-3"><a href=""></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"proportion"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-40-1.png" width="960" class="r-stretch"></section>
@@ -1634,8 +1635,8 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <p>EDA - Visualization: Stats</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds) <span class="sc">+</span></span>
-<span id="cb56-2"><a href="#cb56-2"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds) <span class="sc">+</span></span>
+<span id="cb56-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-41-1.png" width="960" class="r-stretch"></section>
@@ -1646,13 +1647,13 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </div>
 <p>You can create your own stats…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds) <span class="sc">+</span></span>
-<span id="cb57-2"><a href="#cb57-2"></a>  <span class="fu">stat_summary</span>(</span>
-<span id="cb57-3"><a href="#cb57-3"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> depth),</span>
-<span id="cb57-4"><a href="#cb57-4"></a>    <span class="at">fun.min =</span> min,</span>
-<span id="cb57-5"><a href="#cb57-5"></a>    <span class="at">fun.max =</span> max,</span>
-<span id="cb57-6"><a href="#cb57-6"></a>    <span class="at">fun =</span> median</span>
-<span id="cb57-7"><a href="#cb57-7"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds) <span class="sc">+</span></span>
+<span id="cb57-2"><a href=""></a>  <span class="fu">stat_summary</span>(</span>
+<span id="cb57-3"><a href=""></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> depth),</span>
+<span id="cb57-4"><a href=""></a>    <span class="at">fun.min =</span> min,</span>
+<span id="cb57-5"><a href=""></a>    <span class="at">fun.max =</span> max,</span>
+<span id="cb57-6"><a href=""></a>    <span class="at">fun =</span> median</span>
+<span id="cb57-7"><a href=""></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit21_files/figure-revealjs/unnamed-chunk-42-1.png" width="960" class="r-stretch"></section>
@@ -1665,13 +1666,13 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <section id="position-adjustment" class="slide level2">
 <h2>Position Adjustment</h2>
 <p>We can handle the position of our bar plots using <strong>position</strong> argument:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds) <span class="sc">+</span></span>
-<span id="cb58-2"><a href="#cb58-2"></a><span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> clarity), <span class="at">position=</span><span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> diamonds) <span class="sc">+</span></span>
+<span id="cb58-2"><a href=""></a><span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> clarity), <span class="at">position=</span><span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 <p>Argument options:</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center" style="width:300px">
 <figure>
 <p><img data-src="img/identity.png"></p>
@@ -1679,7 +1680,7 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center" style="width:300px;">
 <figure>
 <p><img data-src="img/fill.png"></p>
@@ -1687,7 +1688,7 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center" style="width:300px;">
 <figure>
 <p><img data-src="img/dodge.png"></p>
@@ -1708,24 +1709,33 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <h2>Position Adjustment</h2>
 <div style="font-size:30px;">
 <p>By default ggplot uses Cartesian coordinates (x,y), but you can modify them easily using <code>coord_XXXX()</code> functions.</p>
-</div>
-<div class="quarto-layout-panel" style="font-size:30px;">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, </span>
-<span id="cb59-2"><a href="#cb59-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span>class, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
-<span id="cb59-3"><a href="#cb59-3"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, </span>
+<span id="cb59-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span>class, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
+<span id="cb59-3"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="unit21_files/figure-revealjs/unnamed-chunk-43-1.png" width="960"></p>
+</figure>
 </div>
 </div>
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb60" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, </span>
-<span id="cb60-2"><a href="#cb60-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span>class, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
-<span id="cb60-3"><a href="#cb60-3"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb60-4"><a href="#cb60-4"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, </span>
+<span id="cb60-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span>class, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
+<span id="cb60-3"><a href=""></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb60-4"><a href=""></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="unit21_files/figure-revealjs/unnamed-chunk-44-1.png" width="960"></p>
+</figure>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1734,25 +1744,37 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <section id="position-adjustment-maps" class="slide level2">
 <h2>Position Adjustment: Maps</h2>
 <div style="font-size:30px;">
-<p>By default ggplot uses Cartesian coordinates (x,y), but you can modify them easily using <code>coord_XXXX()</code> functions.</p>
-</div>
-<div class="quarto-layout-panel" style="font-size:30px;">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, </span>
-<span id="cb61-2"><a href="#cb61-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span>class, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
-<span id="cb61-3"><a href="#cb61-3"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can use maps for your plots, and with <code>coord_quickmap()</code> it will compute the accurate ratio for the maps.</p>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="fu">library</span>(maps)</span>
+<span id="cb61-2"><a href=""></a>nz <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">"nz"</span>)</span>
+<span id="cb61-3"><a href=""></a></span>
+<span id="cb61-4"><a href=""></a><span class="fu">ggplot</span>(nz, <span class="fu">aes</span>(long, lat, <span class="at">group =</span> group)) <span class="sc">+</span></span>
+<span id="cb61-5"><a href=""></a>  <span class="fu">geom_polygon</span>(<span class="at">fill =</span> <span class="st">"white"</span>, </span>
+<span id="cb61-6"><a href=""></a>               <span class="at">colour =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="unit21_files/figure-revealjs/unnamed-chunk-45-1.png" width="960"></p>
+</figure>
 </div>
 </div>
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb62" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, </span>
-<span id="cb62-2"><a href="#cb62-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span>class, <span class="at">y=</span>hwy)) <span class="sc">+</span></span>
-<span id="cb62-3"><a href="#cb62-3"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb62-4"><a href="#cb62-4"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="fu">ggplot</span>(nz, <span class="fu">aes</span>(long, lat, <span class="at">group =</span> group)) <span class="sc">+</span></span>
+<span id="cb62-2"><a href=""></a>  <span class="fu">geom_polygon</span>(<span class="at">fill =</span> <span class="st">"white"</span>, </span>
+<span id="cb62-3"><a href=""></a>               <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb62-4"><a href=""></a>  <span class="fu">coord_quickmap</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="unit21_files/figure-revealjs/unnamed-chunk-46-1.png" width="960"></p>
+</figure>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1762,35 +1784,44 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <h2>Position Adjustment</h2>
 <div style="font-size:30px;">
 <p><strong>coord_polar()</strong></p>
-</div>
-<div class="quarto-layout-panel" style="font-size:30px;">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="fu">ggplot</span>(diamonds) <span class="sc">+</span></span>
-<span id="cb63-2"><a href="#cb63-2"></a>  <span class="fu">geom_bar</span>(</span>
-<span id="cb63-3"><a href="#cb63-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill=</span>cut),</span>
-<span id="cb63-4"><a href="#cb63-4"></a>    <span class="at">show.legend =</span> F,</span>
-<span id="cb63-5"><a href="#cb63-5"></a>    <span class="at">width =</span> <span class="dv">1</span></span>
-<span id="cb63-6"><a href="#cb63-6"></a>  ) <span class="sc">+</span></span>
-<span id="cb63-7"><a href="#cb63-7"></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb63-8"><a href="#cb63-8"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="cn">NULL</span>, <span class="at">y=</span><span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb63-9"><a href="#cb63-9"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a><span class="fu">ggplot</span>(diamonds) <span class="sc">+</span></span>
+<span id="cb63-2"><a href=""></a>  <span class="fu">geom_bar</span>(</span>
+<span id="cb63-3"><a href=""></a>    <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill=</span>cut),</span>
+<span id="cb63-4"><a href=""></a>    <span class="at">show.legend =</span> F,</span>
+<span id="cb63-5"><a href=""></a>    <span class="at">width =</span> <span class="dv">1</span></span>
+<span id="cb63-6"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb63-7"><a href=""></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb63-8"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="cn">NULL</span>, <span class="at">y=</span><span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb63-9"><a href=""></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="unit21_files/figure-revealjs/unnamed-chunk-47-1.png" width="960"></p>
+</figure>
 </div>
 </div>
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb64" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="fu">ggplot</span>(diamonds) <span class="sc">+</span></span>
-<span id="cb64-2"><a href="#cb64-2"></a>  <span class="fu">geom_bar</span>(</span>
-<span id="cb64-3"><a href="#cb64-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill=</span>cut),</span>
-<span id="cb64-4"><a href="#cb64-4"></a>    <span class="at">show.legend =</span> F,</span>
-<span id="cb64-5"><a href="#cb64-5"></a>    <span class="at">width =</span> <span class="dv">1</span></span>
-<span id="cb64-6"><a href="#cb64-6"></a>  ) <span class="sc">+</span></span>
-<span id="cb64-7"><a href="#cb64-7"></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb64-8"><a href="#cb64-8"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="cn">NULL</span>, <span class="at">y=</span><span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb64-9"><a href="#cb64-9"></a>  <span class="fu">coord_polar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="fu">ggplot</span>(diamonds) <span class="sc">+</span></span>
+<span id="cb64-2"><a href=""></a>  <span class="fu">geom_bar</span>(</span>
+<span id="cb64-3"><a href=""></a>    <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill=</span>cut),</span>
+<span id="cb64-4"><a href=""></a>    <span class="at">show.legend =</span> F,</span>
+<span id="cb64-5"><a href=""></a>    <span class="at">width =</span> <span class="dv">1</span></span>
+<span id="cb64-6"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb64-7"><a href=""></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb64-8"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="cn">NULL</span>, <span class="at">y=</span><span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb64-9"><a href=""></a>  <span class="fu">coord_polar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="unit21_files/figure-revealjs/unnamed-chunk-48-1.png" width="960"></p>
+</figure>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1798,18 +1829,18 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 </section>
 <section id="to-sum-up-ggplot" class="slide level2">
 <h2>To Sum Up <em>ggplot</em></h2>
-<div class="sourceCode" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>DATA<span class="sc">&gt;</span>) <span class="sc">+</span></span>
-<span id="cb65-2"><a href="#cb65-2"></a>  <span class="er">&lt;</span>GEOM_FUNCTION_1<span class="sc">&gt;</span>(</span>
-<span id="cb65-3"><a href="#cb65-3"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="sc">&lt;</span>MAPPINGS<span class="sc">&gt;</span>),</span>
-<span id="cb65-4"><a href="#cb65-4"></a>    <span class="at">stat =</span> <span class="sc">&lt;</span>STAT<span class="sc">&gt;</span>,</span>
-<span id="cb65-5"><a href="#cb65-5"></a>    <span class="at">position =</span> <span class="sc">&lt;</span>POSITION<span class="sc">&gt;</span></span>
-<span id="cb65-6"><a href="#cb65-6"></a>    ) <span class="sc">+</span></span>
-<span id="cb65-7"><a href="#cb65-7"></a>    ... <span class="sc">+</span></span>
-<span id="cb65-8"><a href="#cb65-8"></a>  <span class="er">&lt;</span>GEOM_FUNCTION_N<span class="sc">&gt;</span> <span class="sc">+</span></span>
-<span id="cb65-9"><a href="#cb65-9"></a>  <span class="er">&lt;</span>COORDINATE_FUNCTION<span class="sc">&gt;</span> <span class="sc">+</span></span>
-<span id="cb65-10"><a href="#cb65-10"></a>  <span class="er">&lt;</span>FACET_FUNCTION<span class="sc">&gt;</span> <span class="sc">+</span></span>
-<span id="cb65-11"><a href="#cb65-11"></a>  <span class="er">&lt;</span>THEME_FUNCTION<span class="sc">&gt;</span> <span class="sc">+</span></span>
-<span id="cb65-12"><a href="#cb65-12"></a>  <span class="er">&lt;</span>LABELS<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>DATA<span class="sc">&gt;</span>) <span class="sc">+</span></span>
+<span id="cb65-2"><a href=""></a>  <span class="er">&lt;</span>GEOM_FUNCTION_1<span class="sc">&gt;</span>(</span>
+<span id="cb65-3"><a href=""></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="sc">&lt;</span>MAPPINGS<span class="sc">&gt;</span>),</span>
+<span id="cb65-4"><a href=""></a>    <span class="at">stat =</span> <span class="sc">&lt;</span>STAT<span class="sc">&gt;</span>,</span>
+<span id="cb65-5"><a href=""></a>    <span class="at">position =</span> <span class="sc">&lt;</span>POSITION<span class="sc">&gt;</span></span>
+<span id="cb65-6"><a href=""></a>    ) <span class="sc">+</span></span>
+<span id="cb65-7"><a href=""></a>    ... <span class="sc">+</span></span>
+<span id="cb65-8"><a href=""></a>  <span class="er">&lt;</span>GEOM_FUNCTION_N<span class="sc">&gt;</span> <span class="sc">+</span></span>
+<span id="cb65-9"><a href=""></a>  <span class="er">&lt;</span>COORDINATE_FUNCTION<span class="sc">&gt;</span> <span class="sc">+</span></span>
+<span id="cb65-10"><a href=""></a>  <span class="er">&lt;</span>FACET_FUNCTION<span class="sc">&gt;</span> <span class="sc">+</span></span>
+<span id="cb65-11"><a href=""></a>  <span class="er">&lt;</span>THEME_FUNCTION<span class="sc">&gt;</span> <span class="sc">+</span></span>
+<span id="cb65-12"><a href=""></a>  <span class="er">&lt;</span>LABELS<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div style="font-size:30px;">
 <p>Remember…</p>
 <ul>
@@ -1833,9 +1864,11 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
 <section id="section-47" class="slide level2">
 <h2></h2>
 <p><img data-src="img/final.gif" width="1000"></p>
+<div class="quarto-auto-generated-content">
 <p><img src="img/logo2.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p>EDA - Visualization</p>
+</div>
 </div>
 </section>
     </div>
@@ -1864,7 +1897,6 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -2163,10 +2195,27 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -2176,8 +2225,17 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -2191,7 +2249,11 @@ $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.11
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
