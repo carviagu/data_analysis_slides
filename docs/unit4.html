@@ -8,7 +8,7 @@
 <link href="unit4_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="unit4_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="unit4_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.353">
+  <meta name="generator" content="quarto-1.5.56">
 
   <meta name="author" content="Carlos Viñals (carlos.vinals@cunef.edu)">
   <title>Modelling</title>
@@ -31,7 +31,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -42,7 +42,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -99,6 +99,8 @@
   <link href="unit4_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="unit4_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="unit4_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="unit4_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="unit4_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="unit4_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -221,7 +223,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -384,6 +387,11 @@
       margin-right: 0; 
     }
   </style>
+  <script type="module" src="unit4_files/libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+  <link href="unit4_files/libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+  <script type="ojs-define">
+  {"contents":[{"name":"boot_plot","value":{"boot_mean":[128.94,115.64,130.38,130.48,134.18,133.88,143.02,131.22,141.74,122.82,130.2,132.06,149.86,154.66,142.56,136.72,140.74,127.66,140.36,138.16,148.92,125.48,138.18,127.12,147.24,132.04,148.84,126.18,132.8,145.9,150.94,153.84,150.28,151.18,147.28,140.72,137.2,138.28,129.26,133.16,128.52,154.62,132.5,146.24,138.5,130.38,128.34,127.26,150.02,123.02,127.28,128.06,130.68,128.1,146.12,120.9,137.08,138.92,137.04,153.62,126.24,137.54,120.74,119.02,133.56,134.08,125.34,132.42,143.26,140.92,144.76,129.64,137.84,140.52,124.44,140.44,146.18,141.98,143.66,135.32,141.42,147.52,157.08,131.72,137.48,153.42,122.46,126.04,138.78,121.56,147.32,138.3,153.2,131.64,134.84,128.6,139.6,154.26,137.72,113.44,150.18,166.24,137.74,126.08,125.02,139.18,137.26,159.3,141.04,138.16,156.74,134.16,157.42,119.64,153.62,156,127.78,121.48,128.94,147.34,150.84,142.14,141.78,124.96,143.78,132.76,150.02,140.62,147.84,135.94,142.06,133.4,121.96,148.32,127.92,119.52,141.56,146.86,144.88,150.94,135.06,132.3,126.7,121.56,123.86,126.74,137.4,143.64,128.2,128.18,161.18,163.06,137.4,125.86,130.08,138.42,150.58,145.94,112.94,143.86,156.3,133,141.22,118.6,128.08,149.06,139.2,139.34,149.58,148.66,133.18,138.14,131.1,138.96,143.62,136.78,127.32,134.86,137.08,143.04,143.12,142.8,139.62,130.1,136.2,129.42,127.9,143.42,124.5,142.74,130.28,141.86,127.04,126.86,143.4,137.02,126.84,133.98,140.6,132.72,142.74,115.36,130.14,149.26,124,144.5,132.5,135.12,138.56,145.54,132.54,130.58,125.16,124.04,137.92,123.7,132.96,146.82,140.3,137.38,148.04,142.18,142.62,130,140.36,152.28,117.74,123.06,136.2,113.82,118.18,131.66,138.4,124.96,146.18,136.06,114.28,153.06,157.82,127.8,129.18,137.98,133.1,127.64,141.9,143.7,139.2,157.5,140.3,132.7,152.02,137.18,143.64,135.24,138.7,152.9,135.1,146.3,137.56,154.84,142.36,150.8,147,137.36,149.64,144.1,145.22,158.12,143.36,124.86,150.24,132.78,155.82,148.38,138.22,147.14,137.78,126.96,127.84,134.12,144.58,162.1,132.26,128.7,128.02,143.78,141.3,136.38,148.46,151.3,141.24,128.36,142.48,120.7,132.94,145.7,128.82,131.64,138.36,122.34,161.82,126.26,150.62,137.16,138.38,128.3,151.42,140.98,125.66,126.62,132.28,157.74,140.64,138.3,138.22,148.38,125.16,137.38,134.54,120.78,162.34,130.04,129.02,154.42,168.48,127.86,128.92,144.78,138.24,128.78,133.74,130.06,144.94,138.22,146.32,134.64,143.1,139.34,137.28,111.34,136.42,136.14,141.74,138.78,122.68,126.52,140.64,146.24,138.36,128.62,141.7,156.22,135.58,147.58,132.1,133.78,134.18,155.92,151.34,114.44,118.66,148.6,152.5,148.38,120.88,124.86,124.8,121.1,134.42,136.46,135.7,151.34,135.96,134.4,135.26,143.66,132.78,146.94,132.08,137.28,162.76,145.76,156.54,147.26,146.58,135.06,161.14,105.96,124.92,138.32,143.58,153.94,129.44,135.78,162.6,127.68,146.64,125.36,168.2,158.36,171.78,119.64,139.1,133.14,154.82,138.96,135.54,141.16,141.22,140.1,157.26,155.66,131.92,132.02,133.52,132.22,125.64,148.58,153.74,121.2,136.88,166.5,147.42,143.66,136.16,127.04,125.62,149.64,133.72,125,127.6,140.94,143.54,142.94,157.32,141.8,139.02,131.04,138.78,145.34,148.28,120.26,158.62,139.92,132.16,148.6,128.48,144.8,133.34,122.58,119.14,138.52,151.36,135.82,115.46,133.82,166.4,144.42,131.58,141.12,148.74,141.42,141.84,127.5,131.68,123.24,141.72,129.92,161.84,121.76,138.42,159.56,136.96,147.26,141.32,125.42,144.6,148.76,124.26,126.02,166.52,137.6,143.88,138.38,132.76,160.74,130.48,137.1,145.78,147.58,139.2,131.9,135.8,134.46,138.18,141.64,127.96,157.52,128.7,159.9]}}]}
+  </script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -416,6 +424,10 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <li>Understanding Linear Models</li>
 <li>Categorical Linear Models</li>
 <li>Multiple Linear Models</li>
+<li>Inference</li>
+<li>Estimate</li>
+<li>Confidence Intervals</li>
+<li>Bootstrapping</li>
 </ul>
 </div>
 <div style="font-size: 30px;">
@@ -495,8 +507,7 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 </ul>
 </div><div class="column">
 <p><img data-src="img/scientific_sampling.PNG"></p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="data-modelling-2" class="slide level2">
 <h2>Data Modelling</h2>
@@ -531,11 +542,11 @@ y = 3x + 7
 <section id="what-are-models-1" class="slide level2">
 <h2>What are models?</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">y=</span>mpg)) <span class="sc">+</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">y=</span>mpg)) <span class="sc">+</span></span>
+<span id="cb1-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-4"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb1-5"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">color=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit4_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
@@ -575,8 +586,8 @@ y = \beta_0 + \beta_1x
 <h2>Fitting models</h2>
 <p>Look at the following data… do you see any pattern? detect the variables?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">y=</span>mpg)) <span class="sc">+</span> </span>
-<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">y=</span>mpg)) <span class="sc">+</span> </span>
+<span id="cb2-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit4_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
@@ -595,21 +606,25 @@ y = \beta_0 + \beta_1x
 <div class="column">
 <p>All possible models, or at least some of them…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>models <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="at">a1 =</span> <span class="fu">runif</span>(<span class="dv">250</span>, <span class="sc">-</span><span class="dv">20</span>, <span class="dv">40</span>),</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="at">a2 =</span> <span class="fu">runif</span>(<span class="dv">250</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>)</span>
-<span id="cb3-4"><a href="#cb3-4"></a>)</span>
-<span id="cb3-5"><a href="#cb3-5"></a></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(wt, mpg)) <span class="sc">+</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a>  <span class="fu">geom_abline</span>(<span class="fu">aes</span>(<span class="at">intercept =</span> a1, </span>
-<span id="cb3-8"><a href="#cb3-8"></a>                  <span class="at">slope =</span> a2), </span>
-<span id="cb3-9"><a href="#cb3-9"></a>              <span class="at">data =</span> models, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>models <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb3-2"><a href=""></a><span class="at">a1 =</span> <span class="fu">runif</span>(<span class="dv">250</span>, <span class="sc">-</span><span class="dv">20</span>, <span class="dv">40</span>),</span>
+<span id="cb3-3"><a href=""></a><span class="at">a2 =</span> <span class="fu">runif</span>(<span class="dv">250</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>)</span>
+<span id="cb3-4"><a href=""></a>)</span>
+<span id="cb3-5"><a href=""></a></span>
+<span id="cb3-6"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(wt, mpg)) <span class="sc">+</span></span>
+<span id="cb3-7"><a href=""></a>  <span class="fu">geom_abline</span>(<span class="fu">aes</span>(<span class="at">intercept =</span> a1, </span>
+<span id="cb3-8"><a href=""></a>                  <span class="at">slope =</span> a2), </span>
+<span id="cb3-9"><a href=""></a>              <span class="at">data =</span> models, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb3-10"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
 <div class="cell">
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="unit4_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+</figure>
+</div>
 </div>
 </div>
 </div><p><br></p><ul>
@@ -636,9 +651,9 @@ y = \beta_0 + \beta_1x
 <h2>Linear Regression</h2>
 <p>As we have seen we have used Linear Regression to create a simple model. For obtaining the coefficients of the model formula we do as follows…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>reg_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> wt, <span class="at">data =</span> mtcars)</span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">coef</span>(reg_mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>reg_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> wt, <span class="at">data =</span> mtcars)</span>
+<span id="cb4-2"><a href=""></a></span>
+<span id="cb4-3"><a href=""></a><span class="fu">coef</span>(reg_mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)          wt 
   37.285126   -5.344472 </code></pre>
@@ -690,19 +705,19 @@ Residual = RealValue - PredictedValue = y - \dot y
 </ul>
 <p>For doing this we will use <code>modelr</code> from <code>tidyverse</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">library</span>(modelr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">library</span>(modelr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="visualizing-models-1" class="slide level2">
 <h2>Visualizing Models</h2>
 <p>First we are going to create a grid of dots of the predicted variable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">library</span>(modelr)</span>
-<span id="cb7-2"><a href="#cb7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3"></a>grid <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">data_grid</span>(wt)</span>
-<span id="cb7-5"><a href="#cb7-5"></a></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="fu">head</span>(grid,<span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">library</span>(modelr)</span>
+<span id="cb7-2"><a href=""></a></span>
+<span id="cb7-3"><a href=""></a>grid <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb7-4"><a href=""></a>  <span class="fu">data_grid</span>(wt)</span>
+<span id="cb7-5"><a href=""></a></span>
+<span id="cb7-6"><a href=""></a><span class="fu">head</span>(grid,<span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 1
      wt
@@ -720,14 +735,14 @@ Residual = RealValue - PredictedValue = y - \dot y
 <h2>Visualizing Models</h2>
 <p>We can add some predictions…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Create the model</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>reg_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> wt, <span class="at">data =</span> mtcars)</span>
-<span id="cb9-3"><a href="#cb9-3"></a></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co"># Add the predictions</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a>grid <span class="ot">&lt;-</span> grid <span class="sc">%&gt;%</span> </span>
-<span id="cb9-6"><a href="#cb9-6"></a>  <span class="fu">add_predictions</span>(reg_mod)</span>
-<span id="cb9-7"><a href="#cb9-7"></a></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="fu">head</span>(grid,<span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="co"># Create the model</span></span>
+<span id="cb9-2"><a href=""></a>reg_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> wt, <span class="at">data =</span> mtcars)</span>
+<span id="cb9-3"><a href=""></a></span>
+<span id="cb9-4"><a href=""></a><span class="co"># Add the predictions</span></span>
+<span id="cb9-5"><a href=""></a>grid <span class="ot">&lt;-</span> grid <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a href=""></a>  <span class="fu">add_predictions</span>(reg_mod)</span>
+<span id="cb9-7"><a href=""></a></span>
+<span id="cb9-8"><a href=""></a><span class="fu">head</span>(grid,<span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 2
      wt  pred
@@ -745,9 +760,9 @@ Residual = RealValue - PredictedValue = y - \dot y
 <h2>Visualizing Models</h2>
 <p>A now we can visualize the model…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(wt)) <span class="sc">+</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> mpg)) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> pred), <span class="at">data =</span> grid, <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(wt)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> mpg)) <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb11-3"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> pred), <span class="at">data =</span> grid, <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit4_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
@@ -755,11 +770,11 @@ Residual = RealValue - PredictedValue = y - \dot y
 <h2>Visualizing Models</h2>
 <p>We can now add the residuals….</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> </span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">add_residuals</span>(reg_mod)</span>
-<span id="cb12-3"><a href="#cb12-3"></a></span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(wt, resid)) <span class="sc">+</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a>  <span class="fu">geom_ref_line</span>(<span class="at">h =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a href=""></a>  <span class="fu">add_residuals</span>(reg_mod)</span>
+<span id="cb12-3"><a href=""></a></span>
+<span id="cb12-4"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(wt, resid)) <span class="sc">+</span></span>
+<span id="cb12-5"><a href=""></a>  <span class="fu">geom_ref_line</span>(<span class="at">h =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit4_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
@@ -787,10 +802,10 @@ Residual = RealValue - PredictedValue = y - \dot y
 <h2>Interpreting linear regression</h2>
 <p>Using the last created model, we can use now <code>broom</code> library from tidyverse ecosystem, that offers multiple functions to optimize a create more efficient code and tasks.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb13-2"><a href="#cb13-2"></a></span>
-<span id="cb13-3"><a href="#cb13-3"></a>mod_reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> wt, <span class="at">data =</span> mtcars)</span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="fu">tidy</span>(mod_reg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">library</span>(broom)</span>
+<span id="cb13-2"><a href=""></a></span>
+<span id="cb13-3"><a href=""></a>mod_reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> wt, <span class="at">data =</span> mtcars)</span>
+<span id="cb13-4"><a href=""></a><span class="fu">tidy</span>(mod_reg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   term        estimate std.error statistic  p.value
@@ -833,17 +848,17 @@ Residual = RealValue - PredictedValue = y - \dot y
 <h3 id="experience-and-salary">Experience and Salary</h3>
 <p>We will see this example where we will try to model the years of experience to the salary of a teacher</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">library</span>(openintro)</span>
-<span id="cb15-2"><a href="#cb15-2"></a></span>
-<span id="cb15-3"><a href="#cb15-3"></a>grade <span class="ot">&lt;-</span> <span class="fu">sample</span>(</span>
-<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"elementary"</span>, <span class="dv">20</span>), </span>
-<span id="cb15-5"><a href="#cb15-5"></a>    <span class="fu">rep</span>(<span class="st">"middle"</span>, <span class="dv">25</span>),</span>
-<span id="cb15-6"><a href="#cb15-6"></a>    <span class="fu">rep</span>(<span class="st">"high"</span>, <span class="dv">26</span>))</span>
-<span id="cb15-7"><a href="#cb15-7"></a>)</span>
-<span id="cb15-8"><a href="#cb15-8"></a></span>
-<span id="cb15-9"><a href="#cb15-9"></a>teacher_sample <span class="ot">&lt;-</span> teacher <span class="sc">%&gt;%</span> </span>
-<span id="cb15-10"><a href="#cb15-10"></a>  <span class="fu">mutate</span>(<span class="at">degree =</span> <span class="fu">factor</span>(degree, <span class="fu">c</span>(<span class="st">"MA"</span>, <span class="st">"BA"</span>)),</span>
-<span id="cb15-11"><a href="#cb15-11"></a>         <span class="at">grade =</span> grade)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">library</span>(openintro)</span>
+<span id="cb15-2"><a href=""></a></span>
+<span id="cb15-3"><a href=""></a>grade <span class="ot">&lt;-</span> <span class="fu">sample</span>(</span>
+<span id="cb15-4"><a href=""></a>  <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"elementary"</span>, <span class="dv">20</span>), </span>
+<span id="cb15-5"><a href=""></a>    <span class="fu">rep</span>(<span class="st">"middle"</span>, <span class="dv">25</span>),</span>
+<span id="cb15-6"><a href=""></a>    <span class="fu">rep</span>(<span class="st">"high"</span>, <span class="dv">26</span>))</span>
+<span id="cb15-7"><a href=""></a>)</span>
+<span id="cb15-8"><a href=""></a></span>
+<span id="cb15-9"><a href=""></a>teacher_sample <span class="ot">&lt;-</span> teacher <span class="sc">%&gt;%</span> </span>
+<span id="cb15-10"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">degree =</span> <span class="fu">factor</span>(degree, <span class="fu">c</span>(<span class="st">"MA"</span>, <span class="st">"BA"</span>)),</span>
+<span id="cb15-11"><a href=""></a>         <span class="at">grade =</span> grade)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-6" class="slide level2">
@@ -853,9 +868,9 @@ Residual = RealValue - PredictedValue = y - \dot y
 </div>
 <h3 id="experience-and-salary-1">Experience and Salary</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">ggplot</span>(teacher_sample, </span>
-<span id="cb16-2"><a href="#cb16-2"></a>       <span class="fu">aes</span>(<span class="at">x=</span>years, <span class="at">y=</span>base)) <span class="sc">+</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">ggplot</span>(teacher_sample, </span>
+<span id="cb16-2"><a href=""></a>       <span class="fu">aes</span>(<span class="at">x=</span>years, <span class="at">y=</span>base)) <span class="sc">+</span></span>
+<span id="cb16-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit4_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
@@ -896,9 +911,9 @@ Residual = RealValue - PredictedValue = y - \dot y
 <h3 id="degree-and-salary">Degree and Salary</h3>
 <p>We will analyze the salary depending on the grade…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Fiting the model</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>mod_base_degree <span class="ot">&lt;-</span> <span class="fu">lm</span>(base <span class="sc">~</span> degree, <span class="at">data=</span>teacher_sample)</span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="fu">tidy</span>(mod_base_degree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="co"># Fiting the model</span></span>
+<span id="cb17-2"><a href=""></a>mod_base_degree <span class="ot">&lt;-</span> <span class="fu">lm</span>(base <span class="sc">~</span> degree, <span class="at">data=</span>teacher_sample)</span>
+<span id="cb17-3"><a href=""></a><span class="fu">tidy</span>(mod_base_degree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   term        estimate std.error statistic  p.value
@@ -910,7 +925,7 @@ Residual = RealValue - PredictedValue = y - \dot y
 <div style="font-size:30px">
 <p>R has created a <strong>indicator variable</strong> degreeBA; if the grade is BA takes value 1 otherwise 0.</p>
 <p>In case of more than two variables it will create two or more indicator variables.</p>
-<p>Base level is the one that will be asumed by the variable when the rest are 0. We must interpret coefficients respect base level.</p>
+<p>Base level is the one that will be assumed by the variable when the rest are 0. We must interpret coefficients respect base level.</p>
 </div>
 </section>
 <section id="section-11" class="slide level2">
@@ -921,9 +936,9 @@ Residual = RealValue - PredictedValue = y - \dot y
 <h3 id="degree-and-salary-1">Degree and Salary</h3>
 <p>So how we can interpret each coefficient…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Fiting the model</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a>mod_base_degree <span class="ot">&lt;-</span> <span class="fu">lm</span>(base <span class="sc">~</span> degree, <span class="at">data=</span>teacher_sample)</span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="fu">tidy</span>(mod_base_degree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="co"># Fiting the model</span></span>
+<span id="cb19-2"><a href=""></a>mod_base_degree <span class="ot">&lt;-</span> <span class="fu">lm</span>(base <span class="sc">~</span> degree, <span class="at">data=</span>teacher_sample)</span>
+<span id="cb19-3"><a href=""></a><span class="fu">tidy</span>(mod_base_degree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   term        estimate std.error statistic  p.value
@@ -941,13 +956,13 @@ Residual = RealValue - PredictedValue = y - \dot y
 <h3 id="degree-and-salary-2">Degree and Salary</h3>
 <p>Now we can add the predictions…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>mod_base_degree <span class="ot">&lt;-</span> <span class="fu">lm</span>(base <span class="sc">~</span> degree, <span class="at">data=</span>teacher_sample)</span>
-<span id="cb21-2"><a href="#cb21-2"></a></span>
-<span id="cb21-3"><a href="#cb21-3"></a>grid <span class="ot">&lt;-</span> teacher_sample <span class="sc">%&gt;%</span> </span>
-<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">data_grid</span>(degree) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-5"><a href="#cb21-5"></a>  <span class="fu">add_predictions</span>(mod_base_degree)</span>
-<span id="cb21-6"><a href="#cb21-6"></a></span>
-<span id="cb21-7"><a href="#cb21-7"></a>grid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>mod_base_degree <span class="ot">&lt;-</span> <span class="fu">lm</span>(base <span class="sc">~</span> degree, <span class="at">data=</span>teacher_sample)</span>
+<span id="cb21-2"><a href=""></a></span>
+<span id="cb21-3"><a href=""></a>grid <span class="ot">&lt;-</span> teacher_sample <span class="sc">%&gt;%</span> </span>
+<span id="cb21-4"><a href=""></a>  <span class="fu">data_grid</span>(degree) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-5"><a href=""></a>  <span class="fu">add_predictions</span>(mod_base_degree)</span>
+<span id="cb21-6"><a href=""></a></span>
+<span id="cb21-7"><a href=""></a>grid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   degree   pred
@@ -965,9 +980,9 @@ Residual = RealValue - PredictedValue = y - \dot y
 <h3 id="degree-and-salary-3">Degree and Salary</h3>
 <p>Visualizing the predictions… what we have predict… average</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">ggplot</span>(teacher_sample, <span class="fu">aes</span>(<span class="at">x=</span>degree)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>base)) <span class="sc">+</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> grid, <span class="fu">aes</span>(<span class="at">y =</span> pred), <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">ggplot</span>(teacher_sample, <span class="fu">aes</span>(<span class="at">x=</span>degree)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y=</span>base)) <span class="sc">+</span></span>
+<span id="cb23-2"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb23-3"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> grid, <span class="fu">aes</span>(<span class="at">y =</span> pred), <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit4_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
@@ -992,9 +1007,9 @@ y = \beta_0 + \beta_1x_1 + \beta_2x_2 +  \cdot\cdot\cdot + \beta_nx_n
 </div>
 <h3 id="degree-and-experience-affects-salary">Degree and Experience affects Salary</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>mod_reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(base <span class="sc">~</span> years <span class="sc">+</span> degree, <span class="at">data =</span> teacher_sample)</span>
-<span id="cb24-2"><a href="#cb24-2"></a></span>
-<span id="cb24-3"><a href="#cb24-3"></a><span class="fu">tidy</span>(mod_reg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a>mod_reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(base <span class="sc">~</span> years <span class="sc">+</span> degree, <span class="at">data =</span> teacher_sample)</span>
+<span id="cb24-2"><a href=""></a></span>
+<span id="cb24-3"><a href=""></a><span class="fu">tidy</span>(mod_reg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 5
   term        estimate std.error statistic  p.value
@@ -1013,11 +1028,11 @@ y = \beta_0 + \beta_1x_1 + \beta_2x_2 +  \cdot\cdot\cdot + \beta_nx_n
 <h3 id="degree-and-experience-affects-salary-1">Degree and Experience affects Salary</h3>
 <p>Add the predictions</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>grid <span class="ot">&lt;-</span> teacher_sample <span class="sc">%&gt;%</span> </span>
-<span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">data_grid</span>(years, degree) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-3"><a href="#cb26-3"></a>  <span class="fu">add_predictions</span>(mod_reg)</span>
-<span id="cb26-4"><a href="#cb26-4"></a></span>
-<span id="cb26-5"><a href="#cb26-5"></a>grid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>grid <span class="ot">&lt;-</span> teacher_sample <span class="sc">%&gt;%</span> </span>
+<span id="cb26-2"><a href=""></a>  <span class="fu">data_grid</span>(years, degree) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-3"><a href=""></a>  <span class="fu">add_predictions</span>(mod_reg)</span>
+<span id="cb26-4"><a href=""></a></span>
+<span id="cb26-5"><a href=""></a>grid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 76 × 3
    years degree   pred
@@ -1044,18 +1059,453 @@ y = \beta_0 + \beta_1x_1 + \beta_2x_2 +  \cdot\cdot\cdot + \beta_nx_n
 <h3 id="degree-and-experience-affects-salary-2">Degree and Experience affects Salary</h3>
 <p>Visualize</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">ggplot</span>(teacher_sample, <span class="fu">aes</span>(years, base, <span class="at">colour =</span> degree)) <span class="sc">+</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> grid, <span class="fu">aes</span>(<span class="at">y =</span> pred)) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">ggplot</span>(teacher_sample, <span class="fu">aes</span>(years, base, <span class="at">colour =</span> degree)) <span class="sc">+</span></span>
+<span id="cb28-2"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb28-3"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> grid, <span class="fu">aes</span>(<span class="at">y =</span> pred)) <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="unit4_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch"></section>
-<section id="section-18" class="slide level2">
+<section id="section-18" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="margin-top: 200px; font-size: 3em;">
+<p>Inference</p>
+</div>
+</section>
+<section id="inference-introduction" class="slide level2">
+<h2>Inference: Introduction</h2>
+<div style="font-size:30px">
+<p>We need to understand some concepts first…</p>
+<ul>
+<li><strong>Population</strong>: Group of elements to study</li>
+<li><strong>Parameter</strong>: Numeric amount originated from the population, normally unknown.</li>
+</ul>
+<p>If we have data about each element of the <strong>population</strong> we could calculate the population <strong>parameter</strong>.</p>
+<p>But this is not possible in most of the cases. For this reason we work with…</p>
+<ul>
+<li><strong>Sample</strong>: A subset of our population of interest.</li>
+<li><strong>Statistic</strong>: Numeric amount originated from the sample.</li>
+</ul>
+<p>If the <strong>sample</strong> represents correctly the population we could use probability and statistical inference to obtain conclusions applicable to the whole population.</p>
+</div>
+</section>
+<section id="statistical-inference" class="slide level2">
+<h2>Statistical Inference</h2>
+<p><strong>Statistical Inference</strong> is the process that allows, through data, obtain conclusions and apply them to the whole population where the sample was originated.</p>
+<ul>
+<li><p><strong>Estimation</strong>, use the sample to estimate a possible interval of values for a given population parameter unknown.</p></li>
+<li><p><strong>Hypothesis Contrast</strong>, evaluate if the given sample shows an evidence of the application of a given affirmation about the population.</p></li>
+</ul>
+<p>We will work with <strong>estimation</strong> here.</p>
+</section>
+<section id="section-19" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="margin-top: 200px; font-size: 3em;">
+<p>Estimations</p>
+</div>
+</section>
+<section id="section-20" class="slide level2">
+<h2></h2>
+<div style="margin-top: 10px;">
+<p>Estimations</p>
+</div>
+<h3 id="airbnb-in-valència">Airbnb in València</h3>
+<p>How much we should expect to pay for an Airbnb in the city of València?</p>
+</section>
+<section id="section-21" class="slide level2">
+<h2></h2>
+<div style="margin-top: 10px;">
+<p>Estimations</p>
+</div>
+<h3 id="airbnb-in-valència-data">Airbnb in València: Data</h3>
+<div style="font-size:30px">
+<p>We have obtained the data from València Airbnb prices thanks to <a href="https://insideairbnb.com/valencia/">Inside Airbnb</a> data repository that scrapped all listings from the website on the 22nd of June 2024.</p>
+<p><strong>Population for the analysis:</strong> All airbnb’ houses/apartments with at least 10 reviews in València.</p>
+<p><strong>Goal Paremeter:</strong> Average price per night in those airbnbs.</p>
+<p>Which is the average price for an airbnb with at leat 8 reviews in the city of Valéncia at the month of June?</p>
+<p>We are going to use a random sample data with 50 airbnb locations with the price per night value informed.</p>
+</div>
+</section>
+<section id="point-estimation" class="slide level2">
+<h2>Point Estimation</h2>
+<p>A <strong>point estimator</strong> is a value computed from the sample to serve as the “best estimation” for the population parameter.</p>
+<p>Our point estimator for the average price per night will be the average obtained from the sample:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/vlc_listings_50.csv"</span>)</span>
+<span id="cb29-2"><a href=""></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb29-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_price =</span> <span class="fu">mean</span>(price))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  mean_price
+       &lt;dbl&gt;
+1       138.</code></pre>
+</div>
+</div>
+</section>
+<section id="point-estimation-1" class="slide level2">
+<h2>Point Estimation</h2>
+<p>Now we can see our point estimator and the sample represented with an histogram</p>
+
+<img data-src="unit4_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch"></section>
+<section id="point-estimation-2" class="slide level2">
+<h2>Point Estimation</h2>
+<p>Point estimators are useful when we are trying to find a general value to define a parameter, but they can be not representative and highly affected by the distribution of the sample values. We can provide a range of values where the parameter can be found.</p>
+<ul>
+<li><p>If we provide only a single value (point estimation), we can fail trying to find the exact parameter for the population.</p></li>
+<li><p>If we provide a range of values, we have more probabilities of having the paremter inside the range of values we found.</p></li>
+</ul>
+</section>
+<section id="section-22" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="margin-top: 200px; font-size: 3em;">
+<p>Confidence Intervals</p>
+</div>
+</section>
+<section id="confidence-intervals" class="slide level2">
+<h2>Confidence Intervals</h2>
+<p>For building a confidence interval for the population parameter, we need to create a rank of possible values around the observed sample’s average.</p>
+<p>It is important to note that the random samples, will be different between them. This means if we take a another random sample of more 50 listings about AirBnb in València, it is possible not to obtain the same price average.</p>
+<p><strong>There is a variability in the sample average.</strong></p>
+<p>For building a confidence interval, we need to measure this variability. This will give us on how much we can expect our sample average to variate from each sample.</p>
+</section>
+<section id="section-23" class="slide level2">
+<h2></h2>
+<div style="margin-top: 10px;">
+<p>Confidence Intervals</p>
+</div>
+<h3 id="some-examples-of-the-importance-of-variability">Some examples of the importance of variability</h3>
+<p>Ex 1: We divide the class in two groups and we ask each student their height. Then we compute the average height for each group. Will you expect them to be the same, similar or different?</p>
+<p>Ex 2: We take 50 students randomly and looks 5 of them write with the left hand. If you take another random sample of 50 students. How many of them will you expect to be left-handed? Will you be surprised if only 3 of them are left-handed? And if they were 40 this time?</p>
+</section>
+<section id="how-to-measure-variability" class="slide level2">
+<h2>How to measure variability?</h2>
+<p>We can measure variability of the sample values with different approaches:</p>
+<ul>
+<li><p><strong>Simulation</strong>: we can use re-sampling techniques or “bootstrap” to find different values for the same metric.</p></li>
+<li><p><strong>Theory</strong>: using the Central Limit Theorem (Normal Distribution)</p></li>
+</ul>
+</section>
+<section id="section-24" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="margin-top: 200px; font-size: 3em;">
+<p>Bootstrapping</p>
+</div>
+</section>
+<section id="bootstrap-principle" class="slide level2">
+<h2>Bootstrap Principle</h2>
+<p><strong>Bootstrap</strong> is a re-sample technique used for measuring the variance of an estimation.</p>
+<p>We will use it for estimating the population parameter using only the given sample.</p>
+<p>It uses the same principles of the statistical inference so it is considered an alternative.</p>
+
+<img data-src="img/Illustration_bootstrap.png" style="margin-left:160px" class="r-stretch"></section>
+<section id="bootstrap-procedure" class="slide level2">
+<h2>Bootstrap Procedure</h2>
+<ol type="1">
+<li><p>Take a <strong>bootstrap sample</strong>, a random sample <strong>with replacement</strong> from the original sample, <strong>with the same size</strong> of the original sample.</p></li>
+<li><p>Compute the <strong>bootstrap statistic</strong>: the statistic we want to compute (average, median, correlation, …) using the bootstrap sample.</p></li>
+<li><p>Repeat steps 1 and 2 multiple times to create a <strong>bootstrap distribution</strong> - a distribution of bootstrap statistics.</p></li>
+<li><p>Compute the confidence interval limits of XX% as the region that has the XX% of the bootstrap distribution.</p></li>
+</ol>
+</section>
+<section id="step-by-step" class="slide level2">
+<h2>Step by step</h2>
+<p><strong>Step 1.</strong> Take a <strong>bootstrap sample</strong>, a random sample <strong>with replacement</strong> from the original sample, <strong>with the same size</strong> of the original sample.</p>
+
+<img data-src="unit4_files/figure-revealjs/unnamed-chunk-26-1.png" width="960" class="r-stretch"></section>
+<section id="step-by-step-1" class="slide level2">
+<h2>Step by step</h2>
+<p><strong>Step 2.</strong> Compute the <strong>bootstrap statistic</strong>: the statistic we want to compute (the average price in this case) using the bootstrap sample.</p>
+
+<img data-src="unit4_files/figure-revealjs/unnamed-chunk-27-1.png" width="960" class="r-stretch"></section>
+<section id="step-by-step-2" class="slide level2">
+<h2>Step by step</h2>
+<p><strong>Step 3.</strong> Repeat steps 1 and 2 multiple times to create a <strong>bootstrap distribution</strong></p>
+
+<img data-src="unit4_files/figure-revealjs/unnamed-chunk-32-1.png" width="960" class="r-stretch"></section>
+<section id="step-by-step-3" class="slide level2">
+<h2>Step by step</h2>
+<p><strong>Step 3.</strong> In this case we have make 500 bootstrap re-samples and then compute the average for each one. What we do finally is represent all the averages in an histogram plot:</p>
+
+<img data-src="unit4_files/figure-revealjs/unnamed-chunk-33-1.png" style="width:70.0%" class="r-stretch"></section>
+<section id="step-by-step-4" class="slide level2">
+<h2>Step by step</h2>
+<p><strong>Step 3.</strong> Here we can compare the original sample and the distribution of bootstrap means.</p>
+
+<img data-src="unit4_files/figure-revealjs/unnamed-chunk-36-1.png" width="960" class="r-stretch"></section>
+<section id="step-by-step-5" class="slide level2">
+<h2>Step by step</h2>
+<p><strong>Step 4.</strong> Compute the limits of the bootstrap interval using the percentiles of the bootstrap distribution.</p>
+<div class="layout-sidebar layout-sidebar-left">
+<div class="cell panel-sidebar">
+<div class="sourceCode cell-code hidden" id="cb31" data-startfrom="1033" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1032;"><span id="cb31-1033"><a href=""></a>d3 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"d3@7"</span>)</span>
+<span id="cb31-1034"><a href=""></a></span>
+<span id="cb31-1035"><a href=""></a>viewof confidence <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
+<span id="cb31-1036"><a href=""></a>  [<span class="dv">0</span><span class="op">,</span> <span class="dv">100</span>]<span class="op">,</span> </span>
+<span id="cb31-1037"><a href=""></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">95</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Confidence%:"</span>}</span>
+<span id="cb31-1038"><a href=""></a>)</span>
+<span id="cb31-1039"><a href=""></a></span>
+<span id="cb31-1040"><a href=""></a>lowerBound <span class="op">=</span> d3<span class="op">.</span><span class="fu">quantile</span>(boot_plot<span class="op">.</span><span class="at">boot_mean</span><span class="op">,</span>(<span class="dv">1</span><span class="op">-</span>confidence<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb31-1041"><a href=""></a></span>
+<span id="cb31-1042"><a href=""></a>upperBound <span class="op">=</span> d3<span class="op">.</span><span class="fu">quantile</span>(boot_plot<span class="op">.</span><span class="at">boot_mean</span><span class="op">,</span>confidence<span class="op">/</span><span class="dv">100</span><span class="op">+</span>(<span class="dv">1</span><span class="op">-</span>confidence<span class="op">/</span><span class="dv">100</span>)<span class="op">/</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-4" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell panel-fill">
+<div class="sourceCode cell-code hidden" id="cb32" data-startfrom="1049" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1048;"><span id="cb32-1049"><a href=""></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb32-1050"><a href=""></a>  <span class="dt">y</span><span class="op">:</span> {</span>
+<span id="cb32-1051"><a href=""></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb32-1052"><a href=""></a>  }<span class="op">,</span></span>
+<span id="cb32-1053"><a href=""></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb32-1054"><a href=""></a>    Plot<span class="op">.</span><span class="fu">rectY</span>(</span>
+<span id="cb32-1055"><a href=""></a>      boot_plot<span class="op">.</span><span class="at">boot_mean</span><span class="op">,</span></span>
+<span id="cb32-1056"><a href=""></a>      Plot<span class="op">.</span><span class="fu">binX</span>(</span>
+<span id="cb32-1057"><a href=""></a>        { </span>
+<span id="cb32-1058"><a href=""></a>          <span class="dt">y</span><span class="op">:</span> <span class="st">"count"</span></span>
+<span id="cb32-1059"><a href=""></a>        }<span class="op">,</span>{</span>
+<span id="cb32-1060"><a href=""></a>        <span class="dt">fill</span><span class="op">:</span> <span class="st">"#ffdad8"</span><span class="op">,</span></span>
+<span id="cb32-1061"><a href=""></a>        </span>
+<span id="cb32-1062"><a href=""></a>        }</span>
+<span id="cb32-1063"><a href=""></a>      )</span>
+<span id="cb32-1064"><a href=""></a>    )<span class="op">,</span></span>
+<span id="cb32-1065"><a href=""></a>      Plot<span class="op">.</span><span class="fu">ruleX</span>([lowerBound])<span class="op">,</span></span>
+<span id="cb32-1066"><a href=""></a>      Plot<span class="op">.</span><span class="fu">ruleX</span>([upperBound])</span>
+<span id="cb32-1067"><a href=""></a>  ]</span>
+<span id="cb32-1068"><a href=""></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-25" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="margin-top: 200px; font-size: 3em;">
+<p>Bootstrapping in R with infer package</p>
+</div>
+</section>
+<section id="infer-package" class="slide level2">
+<h2><code>infer</code> package</h2>
+<div class="columns">
+<div class="column">
+<p><img data-src="img/infer.png"></p>
+</div><div class="column">
+<p>Infer package help us do an inferential analysis like bootstraping but using the tidyverse ecosystem sintax.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="fu">library</span>(infer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="choose-a-seed" class="slide level2">
+<h2>Choose a seed</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When doing analysis, simulations and sampling techniques it is recommended to make them replicable.</p>
+<p><code>set.seed()</code> is an R base function that help us establish a common starting point on your machine, helping you control simulations and making them replicable.</p>
+<p>This means that if use the same seed, you will guarantee that each time you run your code you will get the same results.</p>
+</section>
+<section id="generate-bootstrap-averages" class="slide level2">
+<h2>Generate Bootstrap averages</h2>
+<h3 id="specify"><code>specify()</code></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35" data-code-line-numbers="2,3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb35-2"><a href=""></a>  <span class="co"># specifiy the variable of interest</span></span>
+<span id="cb35-3"><a href=""></a>  <span class="fu">specify</span>(<span class="at">response =</span> price)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>With <code>specify()</code>, we will tell infer which is the variable we will use to make the re-sampling, our objective variable to obtain the bootstrap mean.</p>
+</section>
+<section id="generate-bootstrap-averages-1" class="slide level2">
+<h2>Generate Bootstrap averages</h2>
+<h3 id="generate"><code>generate()</code></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36" data-code-line-numbers="4,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb36-2"><a href=""></a>  <span class="co"># specifiy the variable of interest</span></span>
+<span id="cb36-3"><a href=""></a>  <span class="fu">specify</span>(<span class="at">response =</span> price) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-4"><a href=""></a>  <span class="co"># generate 15000 bootstrap samples</span></span>
+<span id="cb36-5"><a href=""></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1500</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>With <code>generate()</code>, we will tell infer which is the number of re-samplings we want to do, and the technique we want to use. In this case Bootstrap re-sampling.</p>
+</section>
+<section id="generate-bootstrap-averages-2" class="slide level2">
+<h2>Generate Bootstrap averages</h2>
+<h3 id="calculate"><code>calculate()</code></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37" data-code-line-numbers="6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb37-2"><a href=""></a>  <span class="co"># specifiy the variable of interest</span></span>
+<span id="cb37-3"><a href=""></a>  <span class="fu">specify</span>(<span class="at">response =</span> price) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-4"><a href=""></a>  <span class="co"># generate 15000 bootstrap samples</span></span>
+<span id="cb37-5"><a href=""></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1500</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-6"><a href=""></a>    <span class="co"># calculate the statistic of each bootstrap sample</span></span>
+<span id="cb37-7"><a href=""></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>With <code>calculate()</code>, we will tell infer which is the metric we want to compute for each sample, so we can get the metric distribution. In this case we choose the mean, but we can select other kind of metrics, like the median for example.</p>
+</section>
+<section id="full-example" class="slide level2">
+<h2>Full Example</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a>num_reps <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb38-2"><a href=""></a></span>
+<span id="cb38-3"><a href=""></a><span class="co"># save resulting bootstrap distribution</span></span>
+<span id="cb38-4"><a href=""></a>boot_dist <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb38-5"><a href=""></a>  <span class="co"># specify the variable of interest</span></span>
+<span id="cb38-6"><a href=""></a>  <span class="fu">specify</span>(<span class="at">response =</span> price) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-7"><a href=""></a>  <span class="co"># generate 100 bootstrap samples</span></span>
+<span id="cb38-8"><a href=""></a>  <span class="fu">generate</span>(<span class="at">reps =</span> num_reps, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-9"><a href=""></a>  <span class="co"># calculate the statistic of each bootstrap sample</span></span>
+<span id="cb38-10"><a href=""></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb38-11"><a href=""></a></span>
+<span id="cb38-12"><a href=""></a>boot_dist <span class="sc">%&gt;%</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 100
+Columns: 2
+$ replicate &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 1…
+$ stat      &lt;dbl&gt; 141.78, 137.74, 126.60, 142.64, 142.86, 132.52, 144.26, 148.…</code></pre>
+</div>
+</div>
+</section>
+<section id="visualize-the-distribution" class="slide level2">
+<h2>Visualize the distribution</h2>
+
+<img data-src="unit4_files/figure-revealjs/unnamed-chunk-45-1.png" width="960" class="r-stretch"></section>
+<section id="computing-confidence-intervals" class="slide level2">
+<h2>Computing Confidence Intervals</h2>
+<div style="font-size:30px">
+<p>A confidence interval of 95% means that it contains the 95% central possible values of the bootstrap distribution. For obtaining this 95%, we need to exclude the other 5% of the sample.</p>
+<p>As it is a 95% central, means that we need to exclude 2.5% of each side (5% / 2) of the distribution.</p>
+<p><img data-src="img/Interval_Diagram.png" style="width: 750px; margin-left: 125px;"></p>
+</div>
+</section>
+<section id="computing-confidence-intervals-1" class="slide level2">
+<h2>Computing Confidence Intervals</h2>
+<p>For making this computation with <strong>dplyr</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a>ci <span class="ot">&lt;-</span> boot_dist <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">lower_b =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.025</span>), </span>
+<span id="cb40-3"><a href=""></a>            <span class="at">upper_b =</span> <span class="fu">quantile</span>(stat, <span class="fl">0.975</span>))</span>
+<span id="cb40-4"><a href=""></a>ci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  lower_b upper_b
+    &lt;dbl&gt;   &lt;dbl&gt;
+1    122.    158.</code></pre>
+</div>
+</div>
+</section>
+<section id="visualizing-confidence-intervals" class="slide level2">
+<h2>Visualizing Confidence Intervals</h2>
+<h3 id="option-1">Option 1</h3>
+<p>Using ggplot geometric <code>geom_vline()</code> to mark the limits of the interval:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42" data-code-line-numbers="1,3,4,5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> boot_dist, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
+<span id="cb42-2"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb42-3"><a href=""></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> ci<span class="sc">$</span>lower_b,</span>
+<span id="cb42-4"><a href=""></a>             <span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb42-5"><a href=""></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> ci<span class="sc">$</span>upper_b,</span>
+<span id="cb42-6"><a href=""></a>             <span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb42-7"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Bootstrap distribution of the average price."</span>,</span>
+<span id="cb42-8"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"with CI of 95%"</span>,</span>
+<span id="cb42-9"><a href=""></a>       <span class="at">x =</span> <span class="st">"Averages"</span>, <span class="at">y =</span> <span class="st">"Number"</span>) <span class="sc">+</span></span>
+<span id="cb42-10"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualizing-confidence-intervals-1" class="slide level2">
+<h2>Visualizing Confidence Intervals</h2>
+<h3 id="option-1-1">Option 1</h3>
+<p>Using ggplot geometric <code>geom_vline()</code> to mark the limits of the interval:</p>
+
+<img data-src="unit4_files/figure-revealjs/unnamed-chunk-48-1.png" width="960" class="r-stretch"></section>
+<section id="visualizing-confidence-intervals-2" class="slide level2">
+<h2>Visualizing Confidence Intervals</h2>
+<h3 id="option-2">Option 2</h3>
+<p>Using <code>visualize</code> function together with <code>shade_confidence_interval</code> that prints the intervals passed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43" data-code-line-numbers="1,2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="fu">visualize</span>(boot_dist) <span class="sc">+</span></span>
+<span id="cb43-2"><a href=""></a>  <span class="fu">shade_confidence_interval</span>(<span class="at">endpoints =</span> ci)<span class="sc">+</span></span>
+<span id="cb43-3"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Bootstrap distribution of the average price."</span>,</span>
+<span id="cb43-4"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"with CI of 95%"</span>,</span>
+<span id="cb43-5"><a href=""></a>       <span class="at">x =</span> <span class="st">"Averages"</span>, <span class="at">y =</span> <span class="st">"Number"</span>) <span class="sc">+</span></span>
+<span id="cb43-6"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualizing-confidence-intervals-3" class="slide level2">
+<h2>Visualizing Confidence Intervals</h2>
+<h3 id="option-2-1">Option 2</h3>
+<p>Using <code>visualize</code> function together with <code>shade_confidence_interval</code> that prints the intervals passed.</p>
+
+<img data-src="unit4_files/figure-revealjs/unnamed-chunk-50-1.png" width="960" class="r-stretch"></section>
+<section id="interpreting-the-confidence-interval" class="slide level2">
+<h2>Interpreting the Confidence Interval</h2>
+<p>Our Confidence Interval of 95% is [122, 158].</p>
+<div style="font-size: 50px">
+<hr>
+<p><strong>This means that exists a 95% of probability that the average price of the apartments is inside the interval [122, 158]?</strong></p>
+<hr>
+</div>
+</section>
+<section id="interpreting-the-confidence-interval-1" class="slide level2">
+<h2>Interpreting the Confidence Interval</h2>
+<div style="font-size: 30px">
+<hr>
+<p><del><strong>This means that exists a 95% of probability that the average price of the apartments is inside the interval [122, 158]?</strong></del></p>
+<hr>
+<p><img data-src="img/no_gif.gif" class="absolute" style="top: 200px; left: 30px; width: 400px; height: 250px; "></p>
+<p><img data-src="img/theoffice_NO.gif" class="absolute" style="top: 200px; right: 80px; width: 450px; "></p>
+<p><img data-src="img/no.gif" class="absolute" style="left: 195px; bottom: 22px; width: 235px; "></p>
+</div>
+</section>
+<section id="interpreting-the-confidence-interval-2" class="slide level2">
+<h2>Interpreting the Confidence Interval</h2>
+<div style="font-size: 30px">
+<ul>
+<li><p>The population parameter can be or not in our interval. There is no a “probability of 95%” for it to be in an specific interval.</p></li>
+<li><p>Bootstrap distribution computes the variance of the parameter based on sample of the population. And the idea that the origin data comes from a sample, means that if if we change the sample the interval with a confidence of 95% can change.</p></li>
+<li><p>All that we can say, is that *if we take independent samples of the population and compute a 95% CI for the average for each one, we expect that the 95% of these intervals to contain the population average.</p></li>
+<li><p>But we are not sure enough that the population parameter is inside the interval.</p></li>
+</ul>
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td><strong>We have a 95% confidence that the average price of an apartment in València for June is between 122 and 158 euros.</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="section-26" class="slide level2">
 <h2></h2>
 <p><img data-src="img/final.gif" width="1000"></p>
+<div class="quarto-auto-generated-content">
 <p><img src="img/logo2.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p>Modelling</p>
+</div>
 </div>
 </section>
     </div>
@@ -1068,6 +1518,7 @@ y = \beta_0 + \beta_1x_1 + \beta_2x_2 +  \cdot\cdot\cdot + \beta_nx_n
   <script src="unit4_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="unit4_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="unit4_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="unit4_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="unit4_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1084,12 +1535,12 @@ y = \beta_0 + \beta_1x_1 + \beta_2x_2 +  \cdot\cdot\cdot + \beta_nx_n
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -1260,7 +1711,7 @@ y = \beta_0 + \beta_1x_1 + \beta_2x_2 +  \cdot\cdot\cdot + \beta_nx_n
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,
@@ -1268,6 +1719,17 @@ y = \beta_0 + \beta_1x_1 + \beta_2x_2 +  \cdot\cdot\cdot + \beta_nx_n
           RevealZoom
         ]
       });
+    </script>
+    <script type="ojs-module-contents">
+    eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImQzID0gcmVxdWlyZShcImQzQDdcIilcblxudmlld29mIGNvbmZpZGVuY2UgPSBJbnB1dHMucmFuZ2UoXG4gIFswLCAxMDBdLCBcbiAge3ZhbHVlOiA5NSwgc3RlcDogMSwgbGFiZWw6IFwiQ29uZmlkZW5jZSU6XCJ9XG4pXG5cbmxvd2VyQm91bmQgPSBkMy5xdWFudGlsZShib290X3Bsb3QuYm9vdF9tZWFuLCgxLWNvbmZpZGVuY2UvMTAwKS8yKVxuXG51cHBlckJvdW5kID0gZDMucXVhbnRpbGUoYm9vdF9wbG90LmJvb3RfbWVhbixjb25maWRlbmNlLzEwMCsoMS1jb25maWRlbmNlLzEwMCkvMilcblxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiXG5QbG90LnBsb3Qoe1xuICB5OiB7XG4gICAgZ3JpZDogdHJ1ZVxuICB9LFxuICBtYXJrczogW1xuICAgIFBsb3QucmVjdFkoXG4gICAgICBib290X3Bsb3QuYm9vdF9tZWFuLFxuICAgICAgUGxvdC5iaW5YKFxuICAgICAgICB7IFxuICAgICAgICAgIHk6IFwiY291bnRcIlxuICAgICAgICB9LHtcbiAgICAgICAgZmlsbDogXCIjZmZkYWQ4XCIsXG4gICAgICAgIFxuICAgICAgICB9XG4gICAgICApXG4gICAgKSxcbiAgICAgIFBsb3QucnVsZVgoW2xvd2VyQm91bmRdKSxcbiAgICAgIFBsb3QucnVsZVgoW3VwcGVyQm91bmRdKVxuICBdXG59KVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdjb25maWRlbmNlJykifV19
+    </script>
+    <script type="module">
+    if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+    window._ojs.paths.runtimeToDoc = "../../..";
+    window._ojs.paths.runtimeToRoot = "../../..";
+    window._ojs.paths.docToRoot = "";
+    window._ojs.selfContained = false;
+    window._ojs.runtime.interpretFromScriptTags();
     </script>
     
     <script>
@@ -1339,18 +1801,7 @@ y = \beta_0 + \beta_1x_1 + \beta_2x_2 +  \cdot\cdot\cdot + \beta_nx_n
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1382,11 +1833,50 @@ y = \beta_0 + \beta_1x_1 + \beta_2x_2 +  \cdot\cdot\cdot + \beta_nx_n
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
-      function tippyHover(el, contentFn) {
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1396,8 +1886,17 @@ y = \beta_0 + \beta_1x_1 + \beta_2x_2 +  \cdot\cdot\cdot + \beta_nx_n
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1411,7 +1910,11 @@ y = \beta_0 + \beta_1x_1 + \beta_2x_2 +  \cdot\cdot\cdot + \beta_nx_n
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

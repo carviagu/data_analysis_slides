@@ -8,7 +8,7 @@
 <link href="unit31_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="unit31_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="unit31_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.353">
+  <meta name="generator" content="quarto-1.4.555">
 
   <meta name="author" content="Carlos Viñals (carlos.vinals@cunef.edu)">
   <title>Data Wrangling: Importing Data</title>
@@ -31,7 +31,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -221,7 +221,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -414,6 +415,7 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <li>Importing Data with tidyverse</li>
 <li>Parsing data</li>
 <li>Writing data</li>
+<li>Other data sources</li>
 </ul>
 </div>
 <div style="font-size: 30px;">
@@ -426,16 +428,16 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Data Wrangling</h2>
 <p><strong>Objective</strong>: Make data ready for their future <strong>exploration</strong> and <strong>modelling</strong></p>
 <p>We need to convert <strong>raw data</strong> into <strong>processed data</strong></p>
-<div class="quarto-layout-panel" style="font-size:30px;">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-panel" data-layout-ncol="2" style="font-size:30px;">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><strong>Raw Data</strong></p>
 <ul>
 <li>Data as it appears on the source origin.</li>
 <li>Any manipulation has been done to them.</li>
 </ul>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><strong>Processed Data</strong></p>
 <ul>
 <li>Each variable in a column.</li>
@@ -469,7 +471,7 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <p>We will learn how to import, download and read data in R. Mainly focused on <strong>tabular</strong> data.</p>
 <p>As we have seen we will continue using the <strong>tidyverse</strong> ecosystem, focused on the main packages available for importing data into our environments.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We will follow this schema…</p>
 <ul>
@@ -493,11 +495,11 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <p>When working in our environments R will need a working directory, the place where it is located inside your computer.</p>
 <p>For managing it two functions are essential <code>getwd()</code> and <code>setwd()</code></p>
 <p><br></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Returns the currect working directory</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># Returns the currect working directory</span></span>
+<span id="cb2-2"><a href=""></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Change the working directory</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">setwd</span>(<span class="st">"./data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Change the working directory</span></span>
+<span id="cb3-2"><a href=""></a><span class="fu">setwd</span>(<span class="st">"./data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="section-3" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
@@ -554,24 +556,24 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 </div>
 <h3 id="creating-a-path-1">Creating a path</h3>
 <p>We can tell the computer how to reach a place in our files two ways…</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># ABSOLUTE</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># Linux / MacOS</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">setwd</span>(<span class="st">"/home/carviagu/data"</span>) </span>
-<span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co"># Windows </span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/carviagu/data"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># ABSOLUTE</span></span>
+<span id="cb4-2"><a href=""></a><span class="co"># Linux / MacOS</span></span>
+<span id="cb4-3"><a href=""></a><span class="fu">setwd</span>(<span class="st">"/home/carviagu/data"</span>) </span>
+<span id="cb4-4"><a href=""></a></span>
+<span id="cb4-5"><a href=""></a><span class="co"># Windows </span></span>
+<span id="cb4-6"><a href=""></a><span class="fu">setwd</span>(<span class="st">"C:/Users/carviagu/data"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># RELATIVE</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="co"># from my current position</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="fu">setwd</span>(<span class="st">"./data"</span>) </span>
-<span id="cb5-4"><a href="#cb5-4"></a> <span class="co"># from main folder</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="fu">setwd</span>(<span class="st">"/Users/carviagu/data"</span>)</span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="co"># one level up</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="fu">setwd</span>(<span class="st">"../peter"</span>) <span class="co"># one level up</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># RELATIVE</span></span>
+<span id="cb5-2"><a href=""></a><span class="co"># from my current position</span></span>
+<span id="cb5-3"><a href=""></a><span class="fu">setwd</span>(<span class="st">"./data"</span>) </span>
+<span id="cb5-4"><a href=""></a> <span class="co"># from main folder</span></span>
+<span id="cb5-5"><a href=""></a><span class="fu">setwd</span>(<span class="st">"/Users/carviagu/data"</span>)</span>
+<span id="cb5-6"><a href=""></a><span class="co"># one level up</span></span>
+<span id="cb5-7"><a href=""></a><span class="fu">setwd</span>(<span class="st">"../peter"</span>) <span class="co"># one level up</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -606,9 +608,9 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <li>Download the data about elections participation on Madrid Community (Spain) from the <a href="https://datos.comunidad.madrid/catalogo/dataset/929442fc-fef2-4f73-85a4-c4b02328531e/resource/4139576d-a11f-42be-a8de-48d37739f044/download/datos_electorales_elecciones_autonomicas_comunidad_de_madrid_2023.csv">following url</a>:</li>
 </ol>
 <div style="font-size:20px;">
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb6-1" class="hljs-ln-code"><a href="#cb6-1"></a>data_url <span class="ot">&lt;-</span> <span class="st">"https://datos.comunidad.madrid/catalogo/dataset/929442fc-fef2-4f73-85a4-c4b02328531e/resource/4139576d-a11f-42be-a8de-48d37739f044/download/datos_electorales_elecciones_autonomicas_comunidad_de_madrid_2023.csv"</span></span>
-<span id="cb6-2" class="hljs-ln-code"><a href="#cb6-2"></a><span class="fu">download.file</span>(data_url, <span class="at">destfile=</span><span class="st">"data/elections_data.csv"</span>)</span>
-<span id="cb6-3" class="hljs-ln-code"><a href="#cb6-3"></a><span class="fu">list.files</span>(<span class="st">"./data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb6-1" class="hljs-ln-code"><a href=""></a>data_url <span class="ot">&lt;-</span> <span class="st">"https://datos.comunidad.madrid/catalogo/dataset/929442fc-fef2-4f73-85a4-c4b02328531e/resource/4139576d-a11f-42be-a8de-48d37739f044/download/datos_electorales_elecciones_autonomicas_comunidad_de_madrid_2023.csv"</span></span>
+<span id="cb6-2" class="hljs-ln-code"><a href=""></a><span class="fu">download.file</span>(data_url, <span class="at">destfile=</span><span class="st">"data/elections_data.csv"</span>)</span>
+<span id="cb6-3" class="hljs-ln-code"><a href=""></a><span class="fu">list.files</span>(<span class="st">"./data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -635,11 +637,11 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <section id="read.table" class="slide level2">
 <h2><code>read.table()</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># This is how we can read data with read.table</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="co"># IMPORTANT: the file uses ; as separator</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a>elections_data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"data/elections_data.csv"</span>, </span>
-<span id="cb7-4"><a href="#cb7-4"></a>                             <span class="at">header =</span> T, <span class="at">sep =</span> <span class="st">";"</span>)</span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="fu">head</span>(elections_data, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># This is how we can read data with read.table</span></span>
+<span id="cb7-2"><a href=""></a><span class="co"># IMPORTANT: the file uses ; as separator</span></span>
+<span id="cb7-3"><a href=""></a>elections_data <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"data/elections_data.csv"</span>, </span>
+<span id="cb7-4"><a href=""></a>                             <span class="at">header =</span> T, <span class="at">sep =</span> <span class="st">";"</span>)</span>
+<span id="cb7-5"><a href=""></a><span class="fu">head</span>(elections_data, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -684,45 +686,6 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 </ul>
 </div>
 </section>
-<section id="reading-json-data" class="slide level2">
-<h2>Reading JSON data</h2>
-<h3 id="what-is-json">What is JSON?</h3>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<ul>
-<li><p>JSON are the letters of Javascript Object Notation, is a lighter storing data format.</p></li>
-<li><p>It is very frequently used for APIs, data is stored using objects pair key-value.</p></li>
-</ul>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="img/json_example.png"></p>
-</div>
-</div>
-</div>
-</section>
-<section id="reading-json-data-1" class="slide level2">
-<h2>Reading JSON data</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">library</span>(jsonlite)</span>
-<span id="cb9-2"><a href="#cb9-2"></a></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co"># Reading JSON</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a>iris_df <span class="ot">&lt;-</span> <span class="fu">read_json</span>(<span class="st">"data/iris.json"</span>, <span class="at">simplifyVector =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-5"><a href="#cb9-5"></a></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="fu">head</span>(iris_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-1          5.1         3.5          1.4         0.2  setosa
-2          4.9         3.0          1.4         0.2  setosa
-3          4.7         3.2          1.3         0.2  setosa
-4          4.6         3.1          1.5         0.2  setosa
-5          5.0         3.6          1.4         0.2  setosa
-6          5.4         3.9          1.7         0.4  setosa</code></pre>
-</div>
-</div>
-</section>
 <section id="section-12" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="margin-top: 200px; font-size: 3em;">
@@ -734,7 +697,7 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <p>With <strong>tidyverse</strong> we have the <strong>readr</strong> package for reading data…</p>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># library(readr) for using single package</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">library</span>(tidyverse) <span class="co"># library(readr) for using single package</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>All <code>readr</code> function will do the data transformation and return a <em>tibble</em></p>
@@ -752,8 +715,8 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <section id="reading-data-with-readr" class="slide level2">
 <h2>Reading data with <code>readr</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>elections_data <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"data/elections_data.csv"</span>)</span>
-<span id="cb12-2"><a href="#cb12-2"></a>elections_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>elections_data <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"data/elections_data.csv"</span>)</span>
+<span id="cb10-2"><a href=""></a>elections_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -777,11 +740,11 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Reading data with <code>readr</code></h2>
 <p>We can provide a manually written csv:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"a,b,c</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="st">              1,2,3</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="st">              4,5,6"</span>)</span>
-<span id="cb14-4"><a href="#cb14-4"></a></span>
-<span id="cb14-5"><a href="#cb14-5"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"a,b,c</span></span>
+<span id="cb12-2"><a href=""></a><span class="st">              1,2,3</span></span>
+<span id="cb12-3"><a href=""></a><span class="st">              4,5,6"</span>)</span>
+<span id="cb12-4"><a href=""></a></span>
+<span id="cb12-5"><a href=""></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
       a     b     c
@@ -795,13 +758,13 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Reading data with <code>readr</code></h2>
 <p>Using <code>skip</code> argument:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Use skip to avoid reading some lines</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Metadata line information</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="st">                a,b,c</span></span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="st">                1,2,3</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="st">                4,5,6"</span>, <span class="at">skip=</span><span class="dv">1</span>)</span>
-<span id="cb16-6"><a href="#cb16-6"></a></span>
-<span id="cb16-7"><a href="#cb16-7"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="co"># Use skip to avoid reading some lines</span></span>
+<span id="cb14-2"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Metadata line information</span></span>
+<span id="cb14-3"><a href=""></a><span class="st">                a,b,c</span></span>
+<span id="cb14-4"><a href=""></a><span class="st">                1,2,3</span></span>
+<span id="cb14-5"><a href=""></a><span class="st">                4,5,6"</span>, <span class="at">skip=</span><span class="dv">1</span>)</span>
+<span id="cb14-6"><a href=""></a></span>
+<span id="cb14-7"><a href=""></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
       a     b     c
@@ -815,13 +778,13 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Reading data with <code>readr</code></h2>
 <p>If there are comments:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Avoid reading comments</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"# Metadata line information</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="st">                a,b,c</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="st">                1,2,3</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="st">                4,5,6"</span>, <span class="at">comment=</span><span class="st">"#"</span>)</span>
-<span id="cb18-6"><a href="#cb18-6"></a></span>
-<span id="cb18-7"><a href="#cb18-7"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co"># Avoid reading comments</span></span>
+<span id="cb16-2"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"# Metadata line information</span></span>
+<span id="cb16-3"><a href=""></a><span class="st">                a,b,c</span></span>
+<span id="cb16-4"><a href=""></a><span class="st">                1,2,3</span></span>
+<span id="cb16-5"><a href=""></a><span class="st">                4,5,6"</span>, <span class="at">comment=</span><span class="st">"#"</span>)</span>
+<span id="cb16-6"><a href=""></a></span>
+<span id="cb16-7"><a href=""></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
       a     b     c
@@ -835,11 +798,11 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Reading data with <code>readr</code></h2>
 <p>If there aren’t column names:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"a,b,c</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="st">                1,2,3</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a><span class="st">                4,5,6"</span>, <span class="at">col_names=</span><span class="cn">FALSE</span>)</span>
-<span id="cb20-4"><a href="#cb20-4"></a></span>
-<span id="cb20-5"><a href="#cb20-5"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"a,b,c</span></span>
+<span id="cb18-2"><a href=""></a><span class="st">                1,2,3</span></span>
+<span id="cb18-3"><a href=""></a><span class="st">                4,5,6"</span>, <span class="at">col_names=</span><span class="cn">FALSE</span>)</span>
+<span id="cb18-4"><a href=""></a></span>
+<span id="cb18-5"><a href=""></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   X1    X2    X3   
@@ -854,12 +817,12 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Properly formatting the column names</h2>
 <p>Following conventions column names should follow some rules, we can make sure these rules are being applied with <code>janitor</code> package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Name Surname, Is Smoker, PATIENT_AGE </span></span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="st">                Juan Montero, YES, 35</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="st">                Maria Chacón, NO, 64"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb22-4"><a href="#cb22-4"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
-<span id="cb22-5"><a href="#cb22-5"></a></span>
-<span id="cb22-6"><a href="#cb22-6"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Name Surname, Is Smoker, PATIENT_AGE </span></span>
+<span id="cb20-2"><a href=""></a><span class="st">                Juan Montero, YES, 35</span></span>
+<span id="cb20-3"><a href=""></a><span class="st">                Maria Chacón, NO, 64"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-4"><a href=""></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
+<span id="cb20-5"><a href=""></a></span>
+<span id="cb20-6"><a href=""></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   name_surname is_smoker patient_age
@@ -873,11 +836,11 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Reading data with <code>readr</code></h2>
 <p>Working with missing values if blank is not used…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"a,b,c</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a><span class="st">              1,nan,3</span></span>
-<span id="cb24-3"><a href="#cb24-3"></a><span class="st">              4,5,nan"</span>, <span class="at">na =</span> <span class="st">"nan"</span>)</span>
-<span id="cb24-4"><a href="#cb24-4"></a></span>
-<span id="cb24-5"><a href="#cb24-5"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"a,b,c</span></span>
+<span id="cb22-2"><a href=""></a><span class="st">              1,nan,3</span></span>
+<span id="cb22-3"><a href=""></a><span class="st">              4,5,nan"</span>, <span class="at">na =</span> <span class="st">"nan"</span>)</span>
+<span id="cb22-4"><a href=""></a></span>
+<span id="cb22-5"><a href=""></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
       a     b     c
@@ -891,10 +854,10 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Reading excel data with <code>readxl</code></h2>
 <p>There is an special library for excel files:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb26-2"><a href="#cb26-2"></a>iris_data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/iris.xlsx"</span>,</span>
-<span id="cb26-3"><a href="#cb26-3"></a><span class="at">sheet =</span> <span class="dv">1</span>)</span>
-<span id="cb26-4"><a href="#cb26-4"></a><span class="fu">head</span>(iris_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">library</span>(readxl)</span>
+<span id="cb24-2"><a href=""></a>iris_data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/iris.xlsx"</span>,</span>
+<span id="cb24-3"><a href=""></a><span class="at">sheet =</span> <span class="dv">1</span>)</span>
+<span id="cb24-4"><a href=""></a><span class="fu">head</span>(iris_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -914,10 +877,10 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Reading excel data with <code>readxl</code></h2>
 <p>Working with ranges inside the excel file:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb28-2"><a href="#cb28-2"></a>iris_data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/iris.xlsx"</span>,</span>
-<span id="cb28-3"><a href="#cb28-3"></a><span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">range =</span> <span class="st">"C1:E40"</span>)</span>
-<span id="cb28-4"><a href="#cb28-4"></a><span class="fu">head</span>(iris_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">library</span>(readxl)</span>
+<span id="cb26-2"><a href=""></a>iris_data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/iris.xlsx"</span>,</span>
+<span id="cb26-3"><a href=""></a><span class="at">sheet =</span> <span class="dv">1</span>, <span class="at">range =</span> <span class="st">"C1:E40"</span>)</span>
+<span id="cb26-4"><a href=""></a><span class="fu">head</span>(iris_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -952,15 +915,15 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <p><strong>read_csv</strong> function realizes a parsing of text file. This means it converts a text file in an organized data structure.</p>
 <p>For understanding better who it is does that we need to understand <strong>parsing</strong> functions. This functions will transform a vector of characters into an speciallized data vector.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">str</span>(<span class="fu">parse_logical</span>(<span class="fu">c</span>(<span class="st">"T"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">str</span>(<span class="fu">parse_logical</span>(<span class="fu">c</span>(<span class="st">"T"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> logi [1:3] TRUE FALSE FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">str</span>(<span class="fu">parse_integer</span>(<span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"4"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">str</span>(<span class="fu">parse_integer</span>(<span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"4"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> int [1:2] 1 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">str</span>(<span class="fu">parse_date</span>(<span class="fu">c</span>(<span class="st">"2022-01-04"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">str</span>(<span class="fu">parse_date</span>(<span class="fu">c</span>(<span class="st">"2022-01-04"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Date[1:1], format: "2022-01-04"</code></pre>
 </div>
@@ -974,7 +937,7 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 </div>
 <p>All <code>parse</code> functions are uniform: the first argument is the vector to parse and the <code>na</code> argument lend us decide with value treat as a missing value.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">parse_integer</span>(<span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"4"</span>, <span class="st">"."</span>), <span class="at">na=</span><span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="fu">parse_integer</span>(<span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"4"</span>, <span class="st">"."</span>), <span class="at">na=</span><span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  1  4 NA</code></pre>
 </div>
@@ -987,7 +950,7 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 </div>
 <p>If something goes wrong during the process a warning message will be displayed to inform us</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">parse_integer</span>(<span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"4"</span>, <span class="st">"c"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="fu">parse_integer</span>(<span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"4"</span>, <span class="st">"c"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: 1 parsing failure.
 row col               expected actual
@@ -1025,7 +988,7 @@ attr(,"problems")
 <li>Numbers can be described differently depending on the culture/language: 1,46 or 1.45</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">parse_double</span>(<span class="st">"1,45"</span>, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">parse_double</span>(<span class="st">"1,45"</span>, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.45</code></pre>
 </div>
@@ -1041,15 +1004,15 @@ attr(,"problems")
 <li>Sometimes we can find symbols in the numbers: 100%</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">parse_number</span>(<span class="st">"100$"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="fu">parse_number</span>(<span class="st">"100$"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 100</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">parse_number</span>(<span class="st">"39%"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="fu">parse_number</span>(<span class="st">"39%"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 39</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">parse_number</span>(<span class="st">"Me costó 100 €"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a><span class="fu">parse_number</span>(<span class="st">"Me costó 100 €"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 100</code></pre>
 </div>
@@ -1065,11 +1028,11 @@ attr(,"problems")
 <li>Related with the first issue, representation can change on aggregation level: 1.000.000 or 1000000 or 1,000,000 or 1000K or 1M</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">parse_number</span>(<span class="st">"%100,330"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a><span class="fu">parse_number</span>(<span class="st">"%100,330"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 100330</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">parse_number</span>(<span class="st">"100.330€$"</span>, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">grouping_mark =</span> <span class="st">"."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a><span class="fu">parse_number</span>(<span class="st">"100.330€$"</span>, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">grouping_mark =</span> <span class="st">"."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 100330</code></pre>
 </div>
@@ -1082,7 +1045,7 @@ attr(,"problems")
 </div>
 <p>Computers represent text using hexadecimal code (look for <a href="https://elcodigoascii.com.ar">ASCII</a>)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">charToRaw</span>(<span class="st">"Hello"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a><span class="fu">charToRaw</span>(<span class="st">"Hello"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 48 65 6c 6c 6f</code></pre>
 </div>
@@ -1090,8 +1053,8 @@ attr(,"problems")
 <p>The mapping between hexadecimal values and characters are called <strong>encoding</strong>. By default <strong>readr</strong> uses UTF-8, general by default.</p>
 <p>Sometimes in cal fail with old systems files:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>x1 <span class="ot">&lt;-</span> <span class="st">"Nos vemos ma</span><span class="sc">\xf1a</span><span class="st">na"</span></span>
-<span id="cb55-2"><a href="#cb55-2"></a><span class="fu">parse_character</span>(x1, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a>x1 <span class="ot">&lt;-</span> <span class="st">"Nos vemos ma</span><span class="sc">\xf1a</span><span class="st">na"</span></span>
+<span id="cb53-2"><a href=""></a><span class="fu">parse_character</span>(x1, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Nos vemos mañana"</code></pre>
 </div>
@@ -1104,8 +1067,8 @@ attr(,"problems")
 </div>
 <p>We can avoid issues, analyzing the text prior to find the best encoding</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>x1 <span class="ot">&lt;-</span> <span class="st">"Nos vemos ma</span><span class="sc">\xf1a</span><span class="st">na"</span></span>
-<span id="cb57-2"><a href="#cb57-2"></a><span class="fu">guess_encoding</span>(<span class="fu">charToRaw</span>(x1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a>x1 <span class="ot">&lt;-</span> <span class="st">"Nos vemos ma</span><span class="sc">\xf1a</span><span class="st">na"</span></span>
+<span id="cb55-2"><a href=""></a><span class="fu">guess_encoding</span>(<span class="fu">charToRaw</span>(x1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   encoding   confidence
@@ -1123,10 +1086,10 @@ attr(,"problems")
 </div>
 <p>In this case we will need to provide <code>parse_factor()</code> a vector with the possible levels:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="fu">parse_factor</span>(</span>
-<span id="cb59-2"><a href="#cb59-2"></a>  <span class="fu">c</span>(<span class="st">"man"</span>, <span class="st">"woman"</span>, <span class="st">"woman"</span>, <span class="st">"unicorn"</span>),</span>
-<span id="cb59-3"><a href="#cb59-3"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"man"</span>, <span class="st">"woman"</span>)</span>
-<span id="cb59-4"><a href="#cb59-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a><span class="fu">parse_factor</span>(</span>
+<span id="cb57-2"><a href=""></a>  <span class="fu">c</span>(<span class="st">"man"</span>, <span class="st">"woman"</span>, <span class="st">"woman"</span>, <span class="st">"unicorn"</span>),</span>
+<span id="cb57-3"><a href=""></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"man"</span>, <span class="st">"woman"</span>)</span>
+<span id="cb57-4"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] man   woman woman &lt;NA&gt; 
 attr(,"problems")
@@ -1146,7 +1109,7 @@ Levels: man woman</code></pre>
 <div style="font-size:30px;">
 <p><code>parse_datetime()</code> for dates with hour. In the following order: <em>year, month, day, hour, minute and second</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="fu">parse_datetime</span>(<span class="st">"2024-01-01T1015"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="fu">parse_datetime</span>(<span class="st">"2024-01-01T1015"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2024-01-01 10:15:00 UTC"</code></pre>
 </div>
@@ -1154,7 +1117,7 @@ Levels: man woman</code></pre>
 <p><br></p>
 <p><code>parse_date()</code> for dates. In the following order: <em>year, month, day</em> using <code>-</code> or <code>/</code> as separator</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="fu">parse_date</span>(<span class="st">"2024/01/01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="fu">parse_date</span>(<span class="st">"2024/01/01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2024-01-01"</code></pre>
 </div>
@@ -1162,7 +1125,7 @@ Levels: man woman</code></pre>
 <p><br></p>
 <p><code>parse_time()</code> for time. In the following order: <em>hour, minute, seconds</em> using <code>:</code> as separator. <code>am</code> or <code>pm</code> are optional.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="fu">parse_time</span>(<span class="st">"10:15 am"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a><span class="fu">parse_time</span>(<span class="st">"10:15 am"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>10:15:00</code></pre>
 </div>
@@ -1176,22 +1139,22 @@ Levels: man woman</code></pre>
 </div>
 <p>You can define a format of the input to help the parsing…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="fu">parse_date</span>(<span class="st">"01/04/2023"</span>, <span class="st">"%d/%m/%y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a><span class="fu">parse_date</span>(<span class="st">"01/04/2023"</span>, <span class="st">"%d/%m/%y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
 </div>
 <p><br></p>
-<div class="quarto-layout-panel" style="font-size:30px;">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-layout-panel" data-layout-ncol="3" style="font-size:30px;">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <p><strong>Year</strong></p>
 <ul>
 <li><p><strong>%Y</strong> 4 digits</p></li>
 <li><p><strong>%y</strong> 2 digits*</p></li>
 </ul>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <p><strong>Month</strong></p>
 <ul>
 <li><p><strong>%m</strong> 2 digits</p></li>
@@ -1199,7 +1162,7 @@ Levels: man woman</code></pre>
 <li><p><strong>%B</strong> “january”</p></li>
 </ul>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <p><strong>Day</strong></p>
 <ul>
 <li><p><strong>%d</strong> 2 digits</p></li>
@@ -1217,14 +1180,14 @@ Levels: man woman</code></pre>
 </div>
 <p>You can define a format of the input to help the parsing…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="fu">parse_time</span>(<span class="st">"10-30"</span>, <span class="st">"%H-%M"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a><span class="fu">parse_time</span>(<span class="st">"10-30"</span>, <span class="st">"%H-%M"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>10:30:00</code></pre>
 </div>
 </div>
-<div class="quarto-layout-panel" style="font-size:30px;">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-panel" data-layout-ncol="2" style="font-size:30px;">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><strong>Time</strong></p>
 <ul>
 <li><p><strong>%H</strong> 0-23 hours (24)</p></li>
@@ -1233,7 +1196,7 @@ Levels: man woman</code></pre>
 <li><p><strong>%M</strong> minutes</p></li>
 </ul>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><strong>__</strong></p>
 <ul>
 <li><p><strong>%s</strong> seconds (integer)</p></li>
@@ -1270,11 +1233,11 @@ Levels: man woman</code></pre>
 <li><p>Guess the type using a determined heuristic</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a><span class="fu">guess_parser</span>(<span class="st">"2022-01-01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="fu">guess_parser</span>(<span class="st">"2022-01-01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "date"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="fu">str</span>(<span class="fu">parse_guess</span>(<span class="st">"2022-01-01"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a><span class="fu">str</span>(<span class="fu">parse_guess</span>(<span class="st">"2022-01-01"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Date[1:1], format: "2022-01-01"</code></pre>
 </div>
@@ -1294,8 +1257,8 @@ Levels: man woman</code></pre>
 <p>It is suggested to try to inform the type of each column when it is possible.</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a><span class="co"># Not specifying the types</span></span>
-<span id="cb75-2"><a href="#cb75-2"></a><span class="fu">read_csv</span>(<span class="st">"data/df-na.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a><span class="co"># Not specifying the types</span></span>
+<span id="cb73-2"><a href=""></a><span class="fu">read_csv</span>(<span class="st">"data/df-na.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -1320,11 +1283,11 @@ Levels: man woman</code></pre>
 <p>Parsing Data</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a><span class="co"># Specifying the types</span></span>
-<span id="cb77-2"><a href="#cb77-2"></a><span class="fu">read_csv</span>(<span class="st">"data/df-na.csv"</span>,</span>
-<span id="cb77-3"><a href="#cb77-3"></a>         <span class="at">col_types =</span> <span class="fu">list</span>(<span class="fu">col_double</span>(),</span>
-<span id="cb77-4"><a href="#cb77-4"></a>                          <span class="fu">col_character</span>(),</span>
-<span id="cb77-5"><a href="#cb77-5"></a>                          <span class="fu">col_character</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a><span class="co"># Specifying the types</span></span>
+<span id="cb75-2"><a href=""></a><span class="fu">read_csv</span>(<span class="st">"data/df-na.csv"</span>,</span>
+<span id="cb75-3"><a href=""></a>         <span class="at">col_types =</span> <span class="fu">list</span>(<span class="fu">col_double</span>(),</span>
+<span id="cb75-4"><a href=""></a>                          <span class="fu">col_character</span>(),</span>
+<span id="cb75-5"><a href=""></a>                          <span class="fu">col_character</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -1344,8 +1307,8 @@ Levels: man woman</code></pre>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># Other alternative</span></span>
-<span id="cb79-2"><a href="#cb79-2"></a><span class="fu">read_csv</span>(<span class="st">"data/df-na.csv"</span>, <span class="at">col_types=</span><span class="st">"ncc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a><span class="co"># Other alternative</span></span>
+<span id="cb77-2"><a href=""></a><span class="fu">read_csv</span>(<span class="st">"data/df-na.csv"</span>, <span class="at">col_types=</span><span class="st">"ncc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-15" class="slide level2" data-auto-animate="true">
@@ -1367,7 +1330,7 @@ Levels: man woman</code></pre>
 <li><code>write_delim()</code> to write with different delimiters</li>
 </ul>
 <p>Using them:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb80-1" class="hljs-ln-code"><a href="#cb80-1"></a><span class="fu">write_csv</span>(df, <span class="st">"df.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb78-1" class="hljs-ln-code"><a href=""></a><span class="fu">write_csv</span>(df, <span class="st">"df.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="improved-writing" class="slide level2">
 <h2>Improved writing</h2>
@@ -1383,9 +1346,9 @@ Levels: man woman</code></pre>
 <p>Writing Data</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a><span class="fu">write_rds</span>(iris, <span class="st">"data/iris.RDS"</span>)</span>
-<span id="cb81-2"><a href="#cb81-2"></a>iris_tibble <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/iris.RDS"</span>)</span>
-<span id="cb81-3"><a href="#cb81-3"></a>iris_tibble</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a><span class="fu">write_rds</span>(iris, <span class="st">"data/iris.RDS"</span>)</span>
+<span id="cb79-2"><a href=""></a>iris_tibble <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/iris.RDS"</span>)</span>
+<span id="cb79-3"><a href=""></a>iris_tibble</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -1415,12 +1378,53 @@ Levels: man woman</code></pre>
 <li><strong>DBI</strong> together with <strong>RMySQL</strong> or <strong>RSQLite</strong> for launching SQL queries to databases.</li>
 </ul>
 </section>
+<section id="reading-json-data" class="slide level2">
+<h2>Reading JSON data</h2>
+<h3 id="what-is-json">What is JSON?</h3>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<ul>
+<li><p>JSON are the letters of Javascript Object Notation, is a lighter storing data format.</p></li>
+<li><p>It is very frequently used for APIs, data is stored using objects pair key-value.</p></li>
+</ul>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="img/json_example.png"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="reading-json-data-1" class="slide level2">
+<h2>Reading JSON data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href=""></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb81-2"><a href=""></a></span>
+<span id="cb81-3"><a href=""></a><span class="co"># Reading JSON</span></span>
+<span id="cb81-4"><a href=""></a>iris_df <span class="ot">&lt;-</span> <span class="fu">read_json</span>(<span class="st">"data/iris.json"</span>, <span class="at">simplifyVector =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb81-5"><a href=""></a></span>
+<span id="cb81-6"><a href=""></a><span class="fu">head</span>(iris_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa</code></pre>
+</div>
+</div>
+</section>
 <section id="section-17" class="slide level2">
 <h2></h2>
 <p><img data-src="img/final.gif" width="1000"></p>
+<div class="quarto-auto-generated-content">
 <p><img src="img/logo2.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p>Importing Data</p>
+</div>
 </div>
 </section>
     </div>
@@ -1449,7 +1453,6 @@ Levels: man woman</code></pre>
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1748,10 +1751,27 @@ Levels: man woman</code></pre>
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1761,8 +1781,17 @@ Levels: man woman</code></pre>
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1776,7 +1805,11 @@ Levels: man woman</code></pre>
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
