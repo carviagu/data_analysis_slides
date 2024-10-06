@@ -8,7 +8,7 @@
 <link href="unit31_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="unit31_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="unit31_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.555">
+  <meta name="generator" content="quarto-1.5.56">
 
   <meta name="author" content="Carlos Viñals (carlos.vinals@cunef.edu)">
   <title>Data Wrangling: Importing Data</title>
@@ -42,7 +42,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -428,7 +428,10 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Data Wrangling</h2>
 <p><strong>Objective</strong>: Make data ready for their future <strong>exploration</strong> and <strong>modelling</strong></p>
 <p>We need to convert <strong>raw data</strong> into <strong>processed data</strong></p>
-<div class="quarto-layout-panel" data-layout-ncol="2" style="font-size:30px;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" style="font-size:30px;" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><strong>Raw Data</strong></p>
@@ -466,6 +469,11 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h3 id="the-tidyverse-ecosystem-for-data-analysis">The <em>tidyverse</em> ecosystem for data analysis</h3>
 
 <img data-src="img/tidyverse_ecosystem.png" style="margin-left: 50px;" class="r-stretch"></section>
+<section id="the-medallion-architecture" class="slide level2">
+<h2>The Medallion Architecture</h2>
+<p>A data design pattern created for organizing your data sources in data lakes based on a layer system where we enrich our data. Also help us having our data ready for supporting different stakeholders.</p>
+
+<img data-src="img/medallion_architecture.jpeg" style="margin-left: 100px;" class="r-stretch"></section>
 <section id="importing-data" class="slide level2">
 <h2>Importing data</h2>
 <p>We will learn how to import, download and read data in R. Mainly focused on <strong>tabular</strong> data.</p>
@@ -556,6 +564,9 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 </div>
 <h3 id="creating-a-path-1">Creating a path</h3>
 <p>We can tell the computer how to reach a place in our files two ways…</p>
+<div>
+
+</div>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -1145,7 +1156,10 @@ Levels: man woman</code></pre>
 </div>
 </div>
 <p><br></p>
-<div class="quarto-layout-panel" data-layout-ncol="3" style="font-size:30px;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" style="font-size:30px;" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <p><strong>Year</strong></p>
@@ -1185,7 +1199,10 @@ Levels: man woman</code></pre>
 <pre><code>10:30:00</code></pre>
 </div>
 </div>
-<div class="quarto-layout-panel" data-layout-ncol="2" style="font-size:30px;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" style="font-size:30px;" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><strong>Time</strong></p>
@@ -1381,6 +1398,9 @@ Levels: man woman</code></pre>
 <section id="reading-json-data" class="slide level2">
 <h2>Reading JSON data</h2>
 <h3 id="what-is-json">What is JSON?</h3>
+<div>
+
+</div>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -1707,18 +1727,7 @@ Levels: man woman</code></pre>
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1750,7 +1759,29 @@ Levels: man woman</code></pre>
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1758,7 +1789,7 @@ Levels: man woman</code></pre>
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
