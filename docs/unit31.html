@@ -10,7 +10,7 @@
 <link href="unit31_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.56">
 
-  <meta name="author" content="Carlos Viñals (carlos.vinals@cunef.edu)">
+  <meta name="author" content="Carlos Viñals Guitart">
   <title>Data Wrangling: Importing Data</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -397,7 +397,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Carlos Viñals (carlos.vinals@cunef.edu) 
+Carlos Viñals Guitart 
 </div>
 </div>
 </div>
@@ -408,7 +408,7 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <div style="font-size: 30px;">
 <p><strong>Content</strong></p>
 </div>
-<div style="font-size: 30px;">
+<div style="font-size: 20px;">
 <ul>
 <li>First Concepts</li>
 <li>Importing Data with R base</li>
@@ -416,12 +416,14 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <li>Parsing data</li>
 <li>Writing data</li>
 <li>Other data sources</li>
+<li>Processing High Volumes of Data</li>
+<li>Medallion</li>
 </ul>
 </div>
-<div style="font-size: 30px;">
+<div style="font-size: 20px;">
 <p><br></p>
 <p><strong>References</strong></p>
-<p>This unit is mostly based on <em><a href="https://r4ds.had.co.nz">R for Data Science</a>, Wickham and Grolemund (2016)</em></p>
+<p>This unit is mostly based on… <em><a href="https://r4ds.had.co.nz">R for Data Science</a>, Wickham and Grolemund (2016)</em></p>
 </div>
 </section>
 <section id="data-wrangling" class="slide level2">
@@ -431,7 +433,7 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <div>
 
 </div>
-<div class="quarto-layout-panel" style="font-size:30px;" data-layout-ncol="2">
+<div class="quarto-layout-panel" data-layout-ncol="2" style="font-size:30px;">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><strong>Raw Data</strong></p>
@@ -469,11 +471,6 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h3 id="the-tidyverse-ecosystem-for-data-analysis">The <em>tidyverse</em> ecosystem for data analysis</h3>
 
 <img data-src="img/tidyverse_ecosystem.png" style="margin-left: 50px;" class="r-stretch"></section>
-<section id="the-medallion-architecture" class="slide level2">
-<h2>The Medallion Architecture</h2>
-<p>A data design pattern created for organizing your data sources in data lakes based on a layer system where we enrich our data. Also help us having our data ready for supporting different stakeholders.</p>
-
-<img data-src="img/medallion_architecture.jpeg" style="margin-left: 100px;" class="r-stretch"></section>
 <section id="importing-data" class="slide level2">
 <h2>Importing data</h2>
 <p>We will learn how to import, download and read data in R. Mainly focused on <strong>tabular</strong> data.</p>
@@ -1159,7 +1156,7 @@ Levels: man woman</code></pre>
 <div>
 
 </div>
-<div class="quarto-layout-panel" style="font-size:30px;" data-layout-ncol="3">
+<div class="quarto-layout-panel" data-layout-ncol="3" style="font-size:30px;">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <p><strong>Year</strong></p>
@@ -1202,7 +1199,7 @@ Levels: man woman</code></pre>
 <div>
 
 </div>
-<div class="quarto-layout-panel" style="font-size:30px;" data-layout-ncol="2">
+<div class="quarto-layout-panel" data-layout-ncol="2" style="font-size:30px;">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><strong>Time</strong></p>
@@ -1437,7 +1434,248 @@ Levels: man woman</code></pre>
 </div>
 </div>
 </section>
-<section id="section-17" class="slide level2">
+<section id="section-17" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="margin-top: 200px; font-size: 3em;">
+<p>Processing High Volumes of Data</p>
+</div>
+</section>
+<section id="section-18" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<h3 id="understanding-your-computer">Understanding your computer</h3>
+
+<img data-src="img/computer_parts_visual.png" class="r-stretch"></section>
+<section id="processing-high-volumes-of-data" class="slide level2">
+<h2>Processing High Volumes of Data</h2>
+<p>We have work with files of <strong>less than 1 GB of RAM</strong> use with the tidyverse in class.</p>
+<p>In reality you will work with <strong>hundreds of GB or TB</strong>. Here we have two issues:</p>
+<ul>
+<li><p><strong>Memory limit</strong>: The data size is higher than the RAM capacity of your computer.</p></li>
+<li><p><strong>Read or Processing limitations</strong>: Maybe the file can be stored and processed, but due to capacity limitations all processing is time consuming.</p></li>
+</ul>
+</section>
+<section id="understand-data-volumes" class="slide level2">
+<h2>Understand data volumes</h2>
+<div style="font-size: 40px;">
+<p>Here you can find a summary of sizes in computer storage…</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Unit</th>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>K</td>
+<td>Kilo</td>
+<td>1024 B (bytes)</td>
+</tr>
+<tr class="even">
+<td>M</td>
+<td>Mega</td>
+<td>1024 KB (kilobytes)</td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td>Giga</td>
+<td>1024 MB (megabytes)</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>Tera</td>
+<td>1024 GB (gigabytes)</td>
+</tr>
+<tr class="odd">
+<td>P</td>
+<td>Peta</td>
+<td>1024 TB (terabytes)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="issue-data-size-is-bigger-than-memory-capacity" class="slide level2">
+<h2>Issue: data size is bigger than memory capacity</h2>
+<div style="font-size: 40px;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>Normal Capacity</th>
+<th>Estimated Speed (Read/Write)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>RAM</strong></td>
+<td>8–64 GB</td>
+<td>10–100 GB/s</td>
+</tr>
+<tr class="even">
+<td><strong>SSD</strong></td>
+<td>0.5–4 TB</td>
+<td>0.5–3 GB/s</td>
+</tr>
+<tr class="odd">
+<td><strong>HDD</strong></td>
+<td>4–20 TB</td>
+<td>100–250 MB/s</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Accessing to a memory disk can be slow, very frequent with HDD disks. Efficient operations should minize read and write operations to the disk.</p>
+</section>
+<section id="block-processing-chunking" class="slide level2">
+<h2>Block processing (chunking)</h2>
+<p>The main strategy when managing big files is processing them in different pieces (blocks or chunks of information).</p>
+
+<img data-src="img/chunking_diagram.png" class="r-stretch"></section>
+<section id="block-processing-chunking-1" class="slide level2">
+<h2>Block processing (chunking)</h2>
+<div style="font-size: 30px;">
+<p>General rule (Ex: compute the average of a big list of numbers):</p>
+<ol type="1">
+<li><p><strong>Initialize</strong>: Create accumulators in RAM (sum = 0, n = 0).</p></li>
+<li><p><strong>Iterate (loop)</strong>:</p></li>
+</ol>
+<ul>
+<li>Read a chunk of data from the disk..</li>
+<li>Process that chunk in RAM (compute sum_chunk, n_chunk).</li>
+<li>Update (sum += sum_chunk, n += n_chunk).</li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Finalize</strong>: When the whole file has been processed, compute the desired metric (average = sum / n).</li>
+</ol>
+<blockquote>
+<p>This principle applies to both a single computer and a distributed environment (multiple computers)</p>
+</blockquote>
+</div>
+</section>
+<section id="three-options" class="slide level2">
+<h2>Three Options</h2>
+<div style="font-size: 35px;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 22%">
+<col style="width: 32%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Option</strong></th>
+<th><strong>Computation</strong></th>
+<th><strong>Source</strong></th>
+<th><strong>Speed</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Local Partition</strong></td>
+<td>1 computer</td>
+<td><strong>Local Disk</strong></td>
+<td>Medium</td>
+</tr>
+<tr class="even">
+<td><strong>Hadoop + MapReduce</strong></td>
+<td>Multiple computers</td>
+<td><strong>Distributed Disk</strong></td>
+<td>Low (depending on disk)</td>
+</tr>
+<tr class="odd">
+<td><strong>Spark</strong></td>
+<td>Multiple computers</td>
+<td><strong>Distributed RAM</strong> (disk if is not enough)</td>
+<td>High (interactive)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="option-1-local-sequential-processing" class="slide level2">
+<h2>Option 1: Local Sequential Processing</h2>
+<div style="font-size: 30px;">
+<ul>
+<li><p>A single execution thread will read sequentially all file blocks from the main disk and process them.</p></li>
+<li><p>Limitation: The performance is limited by the I/E speed from disk and CPU capacity.</p></li>
+</ul>
+<div class="sourceCode" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href=""></a>con <span class="ot">&lt;-</span> <span class="fu">file</span>(<span class="st">"numbers.csv"</span>)</span>
+<span id="cb83-2"><a href=""></a>chunk <span class="ot">&lt;-</span> <span class="fl">1e6</span></span>
+<span id="cb83-3"><a href=""></a>sum <span class="ot">&lt;-</span> <span class="dv">0</span>; n <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb83-4"><a href=""></a><span class="cf">repeat</span> {</span>
+<span id="cb83-5"><a href=""></a>  x <span class="ot">&lt;-</span> <span class="fu">scan</span>(con, <span class="at">n =</span> chunk, <span class="at">quiet =</span> <span class="cn">TRUE</span>)   <span class="co"># read from main disk</span></span>
+<span id="cb83-6"><a href=""></a>  <span class="cf">if</span> (<span class="fu">length</span>(x) <span class="sc">==</span> <span class="dv">0</span>) <span class="cf">break</span></span>
+<span id="cb83-7"><a href=""></a>  sum <span class="ot">&lt;-</span> sum <span class="sc">+</span> <span class="fu">sum</span>(x)</span>
+<span id="cb83-8"><a href=""></a>  n    <span class="ot">&lt;-</span> n <span class="sc">+</span> <span class="fu">length</span>(x)</span>
+<span id="cb83-9"><a href=""></a>}</span>
+<span id="cb83-10"><a href=""></a><span class="fu">close</span>(con)</span>
+<span id="cb83-11"><a href=""></a>average <span class="ot">&lt;-</span> sum <span class="sc">/</span> n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Limitations</strong>: sequential; any issue will need a reboot of the process; no computer paralelism.</p>
+</div>
+</section>
+<section id="option-2-hadoop-mapreduce" class="slide level2">
+<h2>Option 2: Hadoop + MapReduce</h2>
+<div style="font-size: 35px;">
+<ul>
+<li><p><strong>HDFS</strong>: split the file in blocks and keep them in <strong>different computers</strong> with <strong>copies</strong>.</p></li>
+<li><p><strong>MapReduce</strong>: <strong>paralel</strong> processing and <strong>combination</strong> of results.</p></li>
+</ul>
+<p><strong>Global Average (flow):</strong></p>
+<pre><code>Nodo A → (sumA, nA)
+Nodo B → (sumB, nB)
+...
+Combine → average = (Σ sum_i) / (Σ n_i)</code></pre>
+<ul>
+<li><p>Computation done in the <strong>RAM</strong> of each node (computer).</p></li>
+<li><p><strong>Intermediate</strong> results are red/written on the <strong>HDFS (disk)</strong>.</p></li>
+<li><p><strong>Solid</strong>, designed for <strong>lot processing</strong> (not interactive).</p></li>
+</ul>
+</div>
+</section>
+<section id="option-3-apache-spark" class="slide level2">
+<h2>Option 3: Apache Spark</h2>
+<ul>
+<li><p>Splits the information in nodes too, but it maintains <strong>data and intermediaten results in RAM</strong> when possible.</p></li>
+<li><p>Tries to not access the disk between steps.</p></li>
+<li><p>Useful for <strong>interactive analysis</strong> and <strong>repetitive algorithms</strong>.</p></li>
+</ul>
+<p><strong>Spark using R (minimum):</strong></p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href=""></a><span class="fu">library</span>(sparklyr); <span class="fu">library</span>(dplyr)</span>
+<span id="cb85-2"><a href=""></a>sc <span class="ot">&lt;-</span> <span class="fu">spark_connect</span>(<span class="at">master =</span> <span class="st">"local"</span>)       <span class="co"># or cluster</span></span>
+<span id="cb85-3"><a href=""></a><span class="fu">copy_to</span>(sc, mtcars, <span class="at">overwrite =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb85-4"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">media_hp =</span> <span class="fu">mean</span>(hp)) <span class="sc">%&gt;%</span> <span class="fu">collect</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="when-using-each-one" class="slide level2">
+<h2>When using each one?</h2>
+<p><strong>Local Partition</strong></p>
+<ul>
+<li>File <strong>less than RAM</strong> capacity or you only have <strong>one computer</strong>.</li>
+<li>Simple operations (sums, counting, average).</li>
+</ul>
+<p><strong>Hadoop + MapReduce</strong></p>
+<ul>
+<li><strong>Very big</strong> file (multi‑TB or more) and <strong>no</strong> need of quick interaction.</li>
+<li><strong>Scheduled</strong> proceses (daily/weekly), high <strong>realiability</strong>.</li>
+</ul>
+</section>
+<section id="when-using-each-one-1" class="slide level2">
+<h2>When using each one?</h2>
+<p><strong>Spark</strong></p>
+<ul>
+<li><p><strong>Big</strong> files (10 GB – tens of TB) with need of <strong>quick response</strong>.</p></li>
+<li><p><strong>Interactive analysis</strong>, repetitive tests.</p></li>
+<li><p>Reuse <strong>R/dplyr</strong> (<code>sparklyr</code>) with the same code style.</p></li>
+</ul>
+</section>
+<section id="the-medallion-architecture" class="slide level2">
+<h2>The Medallion Architecture</h2>
+<p>A data design pattern created for organizing your data sources in data lakes based on a layer system where we enrich our data. Also help us having our data ready for supporting different stakeholders.</p>
+
+<img data-src="img/medallion_architecture.jpeg" style="margin-left: 100px;" class="r-stretch"></section>
+<section id="section-19" class="slide level2">
 <h2></h2>
 <p><img data-src="img/final.gif" width="1000"></p>
 <div class="quarto-auto-generated-content">

@@ -8,9 +8,9 @@
 <link href="unit22_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="unit22_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="unit22_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.555">
+  <meta name="generator" content="quarto-1.5.56">
 
-  <meta name="author" content="Carlos Viñals (carlos.vinals@cunef.edu)">
+  <meta name="author" content="Carlos Viñals Guitart">
   <title>Exploratory Data Analysis: Transformation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -42,7 +42,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -397,7 +397,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Carlos Viñals (carlos.vinals@cunef.edu) 
+Carlos Viñals Guitart 
 </div>
 </div>
 </div>
@@ -1061,6 +1061,9 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Filtering</h2>
 <p>For building complex filters we need to know the different logical operators…</p>
 <div style="font-size: 30px;">
+<div>
+
+</div>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
@@ -1300,44 +1303,6 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 </div>
 </div>
 </section>
-<section id="lets-practice" class="slide level2">
-<h2>Let’s practice!</h2>
-<h3 id="exercise-2.2.1">Exercise 2.2.1</h3>
-<p>We need to compute the proportion of countries that, in the year 1967, has a life expectancy between 0-10, 10-20, 20-30, etc.</p>
-</section>
-<section id="lets-practice-1" class="slide level2">
-<h2>Let’s practice!</h2>
-<h3 id="exercise-2.2.1-solution-1">Exercise 2.2.1 (solution 1)</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb63-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">lifeExpDecade =</span> <span class="fu">case_when</span>(lifeExp <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;</span> lifeExp<span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">~</span> <span class="st">'20'</span>,</span>
-<span id="cb63-3"><a href=""></a>          lifeExp <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">&amp;</span> lifeExp<span class="sc">&lt;</span> <span class="dv">40</span> <span class="sc">~</span> <span class="st">'30'</span>,</span>
-<span id="cb63-4"><a href=""></a>          lifeExp <span class="sc">&gt;=</span> <span class="dv">40</span> <span class="sc">&amp;</span> lifeExp<span class="sc">&lt;</span> <span class="dv">50</span> <span class="sc">~</span> <span class="st">'40'</span>,</span>
-<span id="cb63-5"><a href=""></a>          lifeExp <span class="sc">&gt;=</span> <span class="dv">50</span> <span class="sc">&amp;</span> lifeExp<span class="sc">&lt;</span> <span class="dv">60</span> <span class="sc">~</span> <span class="st">'50'</span>,</span>
-<span id="cb63-6"><a href=""></a>          lifeExp <span class="sc">&gt;=</span> <span class="dv">60</span> <span class="sc">&amp;</span> lifeExp<span class="sc">&lt;</span> <span class="dv">70</span> <span class="sc">~</span> <span class="st">'60'</span>,</span>
-<span id="cb63-7"><a href=""></a>          lifeExp <span class="sc">&gt;=</span> <span class="dv">70</span> <span class="sc">&amp;</span> lifeExp<span class="sc">&lt;</span> <span class="dv">80</span> <span class="sc">~</span> <span class="st">'70'</span>,</span>
-<span id="cb63-8"><a href=""></a>          lifeExp <span class="sc">&gt;=</span> <span class="dv">80</span> <span class="sc">&amp;</span> lifeExp<span class="sc">&lt;</span> <span class="dv">90</span> <span class="sc">~</span> <span class="st">'80'</span>,</span>
-<span id="cb63-9"><a href=""></a>          lifeExp <span class="sc">&gt;=</span> <span class="dv">90</span> <span class="sc">&amp;</span> lifeExp<span class="sc">&lt;</span> <span class="dv">100</span> <span class="sc">~</span> <span class="st">'90'</span>,</span>
-<span id="cb63-10"><a href=""></a><span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">'&gt;100'</span></span>
-<span id="cb63-11"><a href=""></a>          )) <span class="sc">%&gt;%</span></span>
-<span id="cb63-12"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1967</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb63-13"><a href=""></a>  <span class="fu">count</span>(continent, lifeExpDecade) <span class="sc">%&gt;%</span></span>
-<span id="cb63-14"><a href=""></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
-<span id="cb63-15"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="lets-practice-2" class="slide level2">
-<h2>Let’s practice!</h2>
-<h3 id="exercise-2.2.1-solution-2">Exercise 2.2.1 (solution 2)</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb64-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">lifeExpDecade =</span> lifeExp <span class="sc">-</span> lifeExp<span class="sc">%%</span><span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb64-3"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1967</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb64-4"><a href=""></a>  <span class="fu">count</span>(continent, lifeExpDecade) <span class="sc">%&gt;%</span></span>
-<span id="cb64-5"><a href=""></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
-<span id="cb64-6"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
 <section id="section-11" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div style="margin-top: 200px; font-size: 3em;">
@@ -1348,9 +1313,9 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <h2>Creating summary stats of the data</h2>
 <p><strong>summarise()</strong> will collapse of the rows creating a single summary stat, it will delete not necessary columns</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb65-2"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1967</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb65-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_gdpPerCapita =</span> <span class="fu">mean</span>(gdpPercap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb63-2"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1967</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb63-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_gdpPerCapita =</span> <span class="fu">mean</span>(gdpPercap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   mean_gdpPerCapita
@@ -1380,10 +1345,10 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <p><strong>summary()</strong> function is powerful when creating groups with <strong>group_by()</strong>. We can obtain different summary stats for groups in the data.</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb67-2"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1967</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb67-3"><a href=""></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
-<span id="cb67-4"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_gdpPerCapita =</span> <span class="fu">mean</span>(gdpPercap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb65-2"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1967</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb65-3"><a href=""></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
+<span id="cb65-4"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_gdpPerCapita =</span> <span class="fu">mean</span>(gdpPercap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   continent mean_gdpPerCapita
@@ -1402,13 +1367,13 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <section id="grouping-data-1" class="slide level2">
 <h2>Grouping data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb69-2"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1967</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb69-3"><a href=""></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
-<span id="cb69-4"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(),</span>
-<span id="cb69-5"><a href=""></a>            <span class="at">mean_gdpPerCapita =</span> <span class="fu">mean</span>(gdpPercap),</span>
-<span id="cb69-6"><a href=""></a>            <span class="at">median_gdpPercapita =</span> <span class="fu">median</span>(gdpPercap),</span>
-<span id="cb69-7"><a href=""></a>            )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb67-2"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1967</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb67-3"><a href=""></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
+<span id="cb67-4"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb67-5"><a href=""></a>            <span class="at">mean_gdpPerCapita =</span> <span class="fu">mean</span>(gdpPercap),</span>
+<span id="cb67-6"><a href=""></a>            <span class="at">median_gdpPercapita =</span> <span class="fu">median</span>(gdpPercap),</span>
+<span id="cb67-7"><a href=""></a>            )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 4
   continent     n mean_gdpPerCapita median_gdpPercapita
@@ -1430,13 +1395,13 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <p>Grouping more variables…</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb71-2"><a href=""></a>  <span class="fu">group_by</span>(continent, year) <span class="sc">%&gt;%</span></span>
-<span id="cb71-3"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb71-4"><a href=""></a>            <span class="at">max_gdpPercapita    =</span> <span class="fu">max</span>(gdpPercap),</span>
-<span id="cb71-5"><a href=""></a>            <span class="at">min_gdpPercapita    =</span> <span class="fu">min</span>(gdpPercap)</span>
-<span id="cb71-6"><a href=""></a>            ) <span class="sc">%&gt;%</span> </span>
-<span id="cb71-7"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1967</span>, <span class="dv">2007</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb69-2"><a href=""></a>  <span class="fu">group_by</span>(continent, year) <span class="sc">%&gt;%</span></span>
+<span id="cb69-3"><a href=""></a>  <span class="fu">summarise</span>(</span>
+<span id="cb69-4"><a href=""></a>            <span class="at">max_gdpPercapita    =</span> <span class="fu">max</span>(gdpPercap),</span>
+<span id="cb69-5"><a href=""></a>            <span class="at">min_gdpPercapita    =</span> <span class="fu">min</span>(gdpPercap)</span>
+<span id="cb69-6"><a href=""></a>            ) <span class="sc">%&gt;%</span> </span>
+<span id="cb69-7"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1967</span>, <span class="dv">2007</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -1461,12 +1426,12 @@ Carlos Viñals (carlos.vinals@cunef.edu)
 <p>I want for each country to have the deviation from the continents maximum life expectancy for each year.</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb73-2"><a href=""></a>  <span class="fu">group_by</span>(year, continent) <span class="sc">%&gt;%</span> </span>
-<span id="cb73-3"><a href=""></a>  <span class="fu">mutate</span>(</span>
-<span id="cb73-4"><a href=""></a>    <span class="at">lifeExp_dev =</span> lifeExp <span class="sc">-</span> <span class="fu">max</span>(lifeExp)</span>
-<span id="cb73-5"><a href=""></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb73-6"><a href=""></a>  <span class="fu">ungroup</span>() <span class="co"># important to avoid unexpected behaviors</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb71-2"><a href=""></a>  <span class="fu">group_by</span>(year, continent) <span class="sc">%&gt;%</span> </span>
+<span id="cb71-3"><a href=""></a>  <span class="fu">mutate</span>(</span>
+<span id="cb71-4"><a href=""></a>    <span class="at">lifeExp_dev =</span> lifeExp <span class="sc">-</span> <span class="fu">max</span>(lifeExp)</span>
+<span id="cb71-5"><a href=""></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb71-6"><a href=""></a>  <span class="fu">ungroup</span>() <span class="co"># important to avoid unexpected behaviors</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -1772,18 +1737,7 @@ Carlos Viñals (carlos.vinals@cunef.edu)
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1815,7 +1769,29 @@ Carlos Viñals (carlos.vinals@cunef.edu)
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1823,7 +1799,7 @@ Carlos Viñals (carlos.vinals@cunef.edu)
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
